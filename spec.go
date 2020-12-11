@@ -25,22 +25,36 @@ type Specification struct {
 
 func (me *Specification) SaveAs(filename string) {
 	nav := Nav()
+	openQuestions := Wrap()
 	body := Body(
 		H1(me.name),
 		nav,
 		Article(
 			H2("Goal"),
 			me.goal,
+			openQuestions,
 			me.background,
 		),
 	)
-	toc.MakeTOC(nav, body, "h2", "h3")
 
 	// add open questions
-	findQuestions(body)
+	questions := findQuestions(body)
+	if len(questions) > 0 {
+		ul := Ul()
+		for _, q := range questions {
+			qid := genID(q.Text())
+			q.With(Id(qid))
+			ul.With(Li(
+				A(Href("#"+qid), q.Text())),
+			)
+		}
+		openQuestions.With(H2("Open questions"), ul)
+	}
 
 	// fix all non html elements
 	renameElement(body, "question", "span")
+
+	toc.MakeTOC(nav, body, "h2", "h3")
 	page := NewPage(
 		Html(
 			Head(
@@ -56,8 +70,8 @@ func findQuestions(root *Element) []*Element {
 	res := make([]*Element, 0)
 
 	web.WalkElements(root, func(e *web.Element) {
-		if e.Name != "question" {
-			return
+		if e.Name == "question" {
+			res = append(res, e)
 		}
 	})
 	return res
@@ -88,4 +102,13 @@ var idChars = regexp.MustCompile(`\W`)
 func genID(v string) string {
 	txt := idChars.ReplaceAllString(v, "")
 	return strings.ToLower(txt)
+}
+
+func idOf(e *web.Element) string {
+	for _, attr := range e.Attributes {
+		if attr.Name == "id" {
+			return attr.Val
+		}
+	}
+	return ""
 }

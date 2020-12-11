@@ -42,7 +42,8 @@ func NewCurrentState(n *Hn) *Element {
 		finds the summary for the specific project.`,
 
 			Question(`What do you do with the summary? enter it into
-		    an invocing system, which?`)),
+		    an invocing system, which?`),
+		),
 
 		//
 	)

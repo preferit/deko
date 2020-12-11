@@ -12,7 +12,7 @@ func theme() *CSS {
 		"font-family: 'Source Sans Pro', sans-serif",
 	)
 	css.Style("body",
-		"padding: 1em 1.618em 300px 1.618em",
+		"padding: 1em 1.618em 1800px 1.618em",
 		"max-width: 21cm",
 		"line-height: 1.3em",
 	)
