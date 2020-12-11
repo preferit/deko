@@ -4,7 +4,7 @@
 
 - [Goal](#goal)
 - [Background](#background)
-- [Current state of affairs](#currentstateofaffairs)
+- [Current state](#currentstate)
 - [Consultant track working hours](#consultanttrackworkinghours)
 - [CEO prepares excel file for consultant](#ceopreparesexcelfileforconsultant)
 - [Consultant reports working hours to CEO](#consultantreportsworkinghourstoceo)
@@ -15,7 +15,8 @@
 ## [Goal](#goal)
 
 Simplify time keeping between consultants and
-customers
+customers.
+
 ## [Background](#background)
 
 Working by the hour involves keeping track of
@@ -34,7 +35,7 @@ CEO to do it when sending the invoice, but there are
 contractors who expect the consultant to report the hours
 directly.
 
-## [Current state of affairs](#currentstateofaffairs)
+## [Current state](#currentstate)
 
 ### [Consultant track working hours](#consultanttrackworkinghours)
 

@@ -6,8 +6,9 @@ func NewDeko() *Specification {
 	n := NewHn(2)
 
 	name := "Deko project specification"
+
 	goal := Goal(`Simplify time keeping between consultants and
-		customers`)
+		          customers.`)
 
 	background := Background(
 		P(`Working by the hour involves keeping track of

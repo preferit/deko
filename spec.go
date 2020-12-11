@@ -5,7 +5,7 @@ import (
 	"github.com/gregoryv/web/toc"
 )
 
-func NewSpecification(name string, goal, background *Element) *Specification {
+func NewSpecification(name string, goal, background interface{}) *Specification {
 	return &Specification{
 		name:       name,
 		goal:       goal,
@@ -15,8 +15,8 @@ func NewSpecification(name string, goal, background *Element) *Specification {
 
 type Specification struct {
 	name       string
-	goal       *Element
-	background *Element
+	goal       interface{}
+	background interface{}
 }
 
 func (me *Specification) SaveAs(filename string) {
@@ -43,7 +43,7 @@ func (me *Specification) SaveAs(filename string) {
 }
 
 func Goal(v ...interface{}) *Element {
-	return Wrap(v...)
+	return Em(v...)
 }
 
 func Background(v ...interface{}) *Element {

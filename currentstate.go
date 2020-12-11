@@ -4,7 +4,7 @@ import . "github.com/gregoryv/web"
 
 func NewCurrentState(n *Hn) *Element {
 	return Wrap(
-		n.H1("Current state of affairs"),
+		n.H1("Current state"),
 
 		n.H2("Consultant track working hours"),
 
