@@ -1,14 +1,24 @@
 package deko
 
-func NewSpecification() *Specification {
-	return &Specification{}
+import . "github.com/gregoryv/web"
+
+func Project(name string, goal *Element, v ...interface{}) *Element {
+	return Article(
+		H1(name),
+		"Goal: ", goal,
+	).With(v...)
+
 }
 
-type Specification struct{}
+func Goal(v ...interface{}) *Element {
+	return Span(Class("goal")).With(v...)
+}
 
-// Requirements
-func (me *Specification) Requirements() []*Requirement {
+func Background(v ...interface{}) *Element {
+	return Span(Class("background")).With(v...)
+}
+
+// Requirements returns all requirements in the specification
+func Requirements(spec *Element) []*Element {
 	return nil
 }
-
-type Requirement struct{}

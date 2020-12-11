@@ -1,14 +1,17 @@
 package deko
 
 import (
-	"fmt"
 	"testing"
+
+	. "github.com/gregoryv/web"
 )
 
 // TestSpec generates additional source from the spec.
-func TestSpec(t *testing.T) {
-	s := NewSpecification()
-	for _, r := range s.Requirements() {
-		fmt.Println(r)
-	}
+func Test_example_spec(t *testing.T) {
+	project := NewDeko()
+
+	spec := NewPage(
+		Html(Body(project)),
+	)
+	spec.SaveAs("specification.md")
 }
