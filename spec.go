@@ -146,14 +146,6 @@ func MainGoal(v string) *Element {
 	return NewElement("maingoal", Class("goal main-goal"), v)
 }
 
-func Goal(v string) *Element {
-	return NewElement("goal", Class("goal"), v)
-}
-
-func Background(v ...interface{}) *Element {
-	return Section(Class("background")).With(v...)
-}
-
 func Question(v string) *Element {
 	return NewElement("question", Class("question"), v)
 }
@@ -166,8 +158,8 @@ func Requirements(v ...interface{}) *Element {
 	return ul
 }
 
-func Requirement(v string) *Element {
-	return NewElement("requirement", Class("requirement"), v)
+func Requirement(v ...interface{}) *Element {
+	return NewElement("requirement", Class("requirement")).With(v...)
 }
 
 var idChars = regexp.MustCompile(`\W`)
