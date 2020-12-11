@@ -39,10 +39,11 @@ func NewCurrentState(n *Hn) *Element {
 		n.H2("CEO creates invoice for customer"),
 
 		P(`CEO opens spreadsheet file for consultant that is
-		contracted and finds the summary for the specific project.`,
+		contracted and finds the summary for the specific project. The
+		accumulated hours that are eligeble for invoicing are manually
+		entered into the financial system.`,
 
-			Question(`What do you do with the summary? enter it into
-		    an invocing system, which?`),
+			Question(`Which financial system do you use today?`),
 		),
 
 		//
