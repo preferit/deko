@@ -62,6 +62,7 @@ func (me *Specification) SaveAs(filename string) {
 	refs := anchorDt(me.references)
 
 	linkReferences(me.goals, refs)
+	linkReferences(me.currentState, refs)
 
 	toc.MakeTOC(nav, body, "h2", "h3", "h4")
 	page := NewPage(

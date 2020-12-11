@@ -88,7 +88,7 @@ func NewCurrentState(n *Hn) *Element {
 		P(`CEO opens spreadsheet file for consultant that is
 		contracted and finds the summary for the specific project. The
 		accumulated hours that are eligible for invoicing are manually
-		entered into the financial system Fortnox.`,
+		entered into the financial system.`,
 		),
 
 		n.H3("Requirements"),
@@ -103,8 +103,12 @@ func NewReferences(n *Hn) *Element {
 		n.H1("References"),
 
 		Dl(
-			Dt("Time keeping"),
 
+			Dt("Financial system"),
+			Dd(`Fortnox is the financial system used to produce
+			invoices.`),
+
+			Dt("Time keeping"),
 			Dd(`The process of logging, reporting and transforming
 			working hours into invoices.`),
 			//
