@@ -50,7 +50,7 @@ the consultant.
 
 ### Consultant reports working hours to CEO
 
-Consultant sends mails the excel file to the CEO
+Consultant e-mails the excel file to the CEO
 ### Consultant reports working hours to contractor
 
 Consultant opens the excel file to find the summary for a

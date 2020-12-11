@@ -29,7 +29,7 @@ func NewCurrentState(n *Hn) *Element {
 
 		n.H2("Consultant reports working hours to CEO"),
 
-		P(`Consultant sends mails the excel file to the CEO`),
+		P(`Consultant e-mails the excel file to the CEO`),
 
 		n.H2("Consultant reports working hours to contractor"),
 
@@ -42,8 +42,7 @@ func NewCurrentState(n *Hn) *Element {
 		finds the summary for the specific project.`,
 
 			Question(`What do you do with the summary? enter it into
-		    an invocing system, which?`),
-		),
+		    an invocing system, which?`)),
 
 		//
 	)
