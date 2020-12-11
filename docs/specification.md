@@ -1,4 +1,6 @@
-# deko
+
+
+# Deko project specification
 
 ## Goal
 

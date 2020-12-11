@@ -14,7 +14,11 @@ type Specification struct {
 
 func (me *Specification) SaveAs(filename string) {
 	page := NewPage(
-		Html(Body(me.project)),
+		Html(
+			Head(
+				Style(theme()),
+			),
+			Body(me.project)),
 	)
 	page.SaveAs(filename)
 }
@@ -34,9 +38,4 @@ func Goal(v ...interface{}) *Element {
 
 func Background(v ...interface{}) *Element {
 	return Section(Class("background"), H2("Background")).With(v...)
-}
-
-// Requirements returns all requirements in the specification
-func Requirements(spec *Element) []*Element {
-	return nil
 }

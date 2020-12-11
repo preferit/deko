@@ -3,7 +3,7 @@ package deko
 import . "github.com/gregoryv/web"
 
 func NewDeko() *Element {
-	p := Project("deko",
+	p := Project("Deko project specification",
 
 		Goal(`Simplify time keeping between consultants and
 		customers`),
