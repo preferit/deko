@@ -14,7 +14,6 @@ import (
 type Specification struct {
 	name         string
 	goals        *Element
-	background   *Element
 	currentState *Element
 	changelog    *Element
 	references   *Element
@@ -33,7 +32,6 @@ func (me *Specification) SaveAs(filename string) {
 		Article(
 			me.goals,
 			openQuestions,
-			me.background,
 			me.currentState,
 		),
 		me.changelog,

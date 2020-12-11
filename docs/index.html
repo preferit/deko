@@ -20,6 +20,9 @@ nav ul {
 list-style-type: none;
 padding-left: 0;
 }
+section {
+margin-bottom: 3.236em;
+}
 li.h3 {
 margin-left: 1.618em;
 }
@@ -45,11 +48,11 @@ text-align: right;
 </style>
 </head>
 <body>
-<div class="timestamp">Last update: 2020-12-11 17:30</div>
+<div class="timestamp">Last update: 2020-12-11 17:51</div>
 <h1>Deko project specification</h1>
 <em class="goal main-goal">Simplify <a href="#timekeeping">time keeping</a> between consultants and customers.</em><nav><ul>
 <li class="h2"><a href="#goals">Goals</a></li>
-<li class="h2"><a href="#background">Background</a></li>
+<li class="h3"><a href="#background">Background</a></li>
 <li class="h2"><a href="#currentstate">Current state</a></li>
 <li class="h3"><a href="#consultanttrackworkinghours">Consultant track working hours</a></li>
 <li class="h3"><a href="#ceopreparesspreadsheetfileforconsultant">CEO prepares spreadsheet file for consultant</a></li>
@@ -63,9 +66,10 @@ text-align: right;
 </ul>
 </nav>
 <article>
+<section>
 <h2 id="goals"><a href="#goals">Goals</a></h2>
 <p>The main goal of this project is to "<em class="goal main-goal">Simplify <a href="#timekeeping">time keeping</a> between consultants and customers.</em>".</p>
-<h2 id="background"><a href="#background">Background</a></h2>
+<h3 id="background"><a href="#background">Background</a></h3>
 <p>Working by the hour involves keeping track of
 		those working hours and at certain intervals transform the
 		accumulated time to an invoice for the customer.</p>
@@ -80,6 +84,8 @@ text-align: right;
 		CEO to do it when sending the invoice, but there are
 		contractors who expect the consultant to report the hours
 		directly.</p>
+</section>
+<section>
 <h2 id="currentstate"><a href="#currentstate">Current state</a></h2>
 <h3 id="consultanttrackworkinghours"><a href="#consultanttrackworkinghours">Consultant track working hours</a></h3>
 <p>Preferits consultants use spreadsheet file for gathering
@@ -114,6 +120,7 @@ text-align: right;
 		invoicing.</div>
 </li>
 </ul>
+</section>
 </article>
 <article>
 <h2 id="changelog"><a href="#changelog">Changelog</a></h2>
@@ -127,6 +134,7 @@ text-align: right;
 </ul>
 </section>
 </article>
+<section>
 <h2 id="references"><a href="#references">References</a></h2>
 <dl>
 <dt id="financialsystem">Financial system</dt>
@@ -135,5 +143,6 @@ text-align: right;
 <dt id="timekeeping">Time keeping</dt>
 <dd>The process of logging, reporting and transforming
 			working hours into invoices.</dd>
-</dl></body>
+</dl></section>
+</body>
 </html>

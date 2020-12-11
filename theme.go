@@ -23,6 +23,9 @@ func theme() *CSS {
 		"list-style-type: none",
 		"padding-left: 0",
 	)
+	css.Style("section",
+		"margin-bottom: 3.236em",
+	)
 	css.Style("li.h3",
 		"margin-left: 1.618em",
 	)

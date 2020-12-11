@@ -8,7 +8,6 @@ func NewDeko() *Specification {
 	s := &Specification{}
 	s.name = "Deko project specification"
 	s.goals = NewGoals(n)
-	s.background = NewBackground(n)
 	s.currentState = NewCurrentState(n)
 	s.changelog = NewChangelog(n)
 	s.references = NewReferences(n)
@@ -18,17 +17,13 @@ func NewDeko() *Specification {
 func NewGoals(n *Hn) *Element {
 	main := MainGoal("Simplify time keeping between consultants and customers.")
 
-	return Wrap(
+	return Section(
 		n.H1("Goals"),
 
 		P(`The main goal of this project is to "`, main, `".`),
 		//
-	)
-}
 
-func NewBackground(n *Hn) *Element {
-	return Wrap(
-		n.H1("Background"),
+		n.H2("Background"),
 		P(`Working by the hour involves keeping track of
 		those working hours and at certain intervals transform the
 		accumulated time to an invoice for the customer.`),
@@ -50,7 +45,7 @@ func NewBackground(n *Hn) *Element {
 }
 
 func NewCurrentState(n *Hn) *Element {
-	return Wrap(
+	return Section(
 		n.H1("Current state"),
 
 		n.H2("Consultant track working hours"),
@@ -99,7 +94,7 @@ func NewCurrentState(n *Hn) *Element {
 }
 
 func NewReferences(n *Hn) *Element {
-	return Wrap(
+	return Section(
 		n.H1("References"),
 
 		Dl(
