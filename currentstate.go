@@ -40,9 +40,12 @@ func NewCurrentState(n *Hn) *Element {
 
 		P(`CEO opens spreadsheet file for consultant that is
 		contracted and finds the summary for the specific project. The
-		accumulated hours that are eligeble for invoicing are manually
+		accumulated hours that are eligible for invoicing are manually
 		entered into the financial system Fortnox.`,
 		),
+
+		n.H3("Requirements"),
+		Requirements(R1),
 
 		//
 	)

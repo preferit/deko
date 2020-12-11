@@ -61,6 +61,7 @@ func (me *Specification) SaveAs(filename string) {
 
 	// fix all non html elements
 	renameElement(body, "question", "h4")
+	renameElement(body, "requirement", "div")
 
 	toc.MakeTOC(nav, body, "h2", "h3", "h4")
 	page := NewPage(
@@ -103,6 +104,18 @@ func Background(v ...interface{}) *Element {
 
 func Question(v string) *Element {
 	return NewElement("question", Class("question"), v)
+}
+
+func Requirements(v ...interface{}) *Element {
+	ul := Ul()
+	for _, req := range v {
+		ul.With(Li(req))
+	}
+	return ul
+}
+
+func Requirement(v string) *Element {
+	return NewElement("requirement", Class("requirement"), v)
 }
 
 var idChars = regexp.MustCompile(`\W`)
