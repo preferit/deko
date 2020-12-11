@@ -44,3 +44,7 @@ func Goal(v ...interface{}) *Element {
 func Background(v ...interface{}) *Element {
 	return Section(Class("background"), H2("Background")).With(v...)
 }
+
+func Question(v ...interface{}) *Element {
+	return Span(Class("question")).With(v...)
+}

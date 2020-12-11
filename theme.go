@@ -12,7 +12,7 @@ func theme() *CSS {
 		"font-family: 'Source Sans Pro', sans-serif",
 	)
 	css.Style("body",
-		"padding: 1em 1.618em 1em 1.618em",
+		"padding: 1em 1.618em 300px 1.618em",
 		"max-width: 21cm",
 		"line-height: 1.3em",
 	)
@@ -29,6 +29,9 @@ func theme() *CSS {
 	css.Style("li.h4",
 		"margin-left: 3.236em",
 	)
-
+	css.Style(".question",
+		"color: darkred",
+		"font-weight: bold",
+	)
 	return css
 }

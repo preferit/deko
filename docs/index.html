@@ -9,7 +9,7 @@ body: 0 0;
 font-family: 'Source Sans Pro', sans-serif;
 }
 body {
-padding: 1em 1.618em 1em 1.618em;
+padding: 1em 1.618em 300px 1.618em;
 max-width: 21cm;
 line-height: 1.3em;
 }
@@ -25,6 +25,10 @@ margin-left: 1.618em;
 }
 li.h4 {
 margin-left: 3.236em;
+}
+.question {
+color: darkred;
+font-weight: bold;
 }
 </style>
 </head>
@@ -51,14 +55,32 @@ Working by the hour involves keeping track of
 		contractors who expect the consultant to report the hours
 		directly.</p>
 <h2>Current state of affairs</h2>
-<p>Preferits consultants use excel spreadsheets for gathering
-	    the hours and reporting them to the CEO. The file contains
-	    monthly sheets and a yearly summary. Consultants register a
-	    project per line and enter number of hours for each day. There
-	    are also rows for vacation, illness and other non project
-	    specific tasks that may need time tracking. The file is
-	    prepared in advance by the CEO each year, with expected number
-	    of working hours for each day.</p>
+<h3>Consultant track working hours</h3>
+<p>Preferits consultants use excel file for gathering the
+	    hours and reporting them to the CEO. The file is prepared in
+	    advance by the CEO each year, with expected number of working
+	    hours for each day. The file contains monthly
+	    sheets and a yearly summary. Consultants register a project
+	    per line and enter number of hours for each day. There are
+	    also rows for vacation, illness and other non project specific
+	    tasks that may need time tracking.</p>
+<h3>CEO prepares excel file for consultant</h3>
+<p>Each year the CEO creates a new excel file based on a
+		previous one. He goes through each month and verifies that the
+		calendar is correct and changes the expected working hours for
+		holidays. Once this is done the file is duplicated for each
+		consultant. If the consultant has overtime left from last year
+		it added to this years file. The new file is then sent out to
+		the consultant.</p>
+<h3>Consultant reports working hours to CEO</h3>
+<p>Consultant sends mails the excel file to the CEO</p>
+<h3>Consultant reports working hours to contractor</h3>
+<p>Consultant opens the excel file to find the summary for a
+		specific project and mails that summary to the contractor.</p>
+<h3>CEO creates invoice for customer</h3>
+<p>CEO opens excelfile for consultant that is contracted and
+		finds the summary for the specific project.<span class="question">What do you do with the summary? enter it into
+		    an invocing system, which?</span></p>
 </article>
 </body>
 </html>
