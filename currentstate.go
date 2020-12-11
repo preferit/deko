@@ -34,7 +34,7 @@ func NewCurrentState(n *Hn) *Element {
 		n.H2("Consultant reports working hours to contractor"),
 
 		P(`Consultant opens the excel file to find the summary for a
-		specific project and mails that summary to the contractor.`),
+		specific project and e-mails that summary to the contractor.`),
 
 		n.H2("CEO creates invoice for customer"),
 
