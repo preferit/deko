@@ -21,7 +21,7 @@ func NewDeko() *Specification {
 		Preferit. Also at times when consultants are sub-contracted
 		this way, working hours need to be reported both to the CEO
 		and the other contracting firm. Sometimes it's enough for the
-		CEO to do it when sending the invoice and there are
+		CEO to do it when sending the invoice, but there are
 		contractors who expect the consultant to report the hours
 		directly.`),
 
