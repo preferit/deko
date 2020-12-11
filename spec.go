@@ -5,16 +5,18 @@ import (
 	"github.com/gregoryv/web/toc"
 )
 
-func NewSpecification(name string, project *Element) *Specification {
+func NewSpecification(name string, goal, background *Element) *Specification {
 	return &Specification{
-		name:    name,
-		project: project,
+		name:       name,
+		goal:       goal,
+		background: background,
 	}
 }
 
 type Specification struct {
-	name    string
-	project *Element
+	name       string
+	goal       *Element
+	background *Element
 }
 
 func (me *Specification) SaveAs(filename string) {
@@ -23,7 +25,9 @@ func (me *Specification) SaveAs(filename string) {
 		H1(me.name),
 		nav,
 		Article(
-			me.project,
+			H2("Goal"),
+			me.goal,
+			me.background,
 		),
 	)
 	toc.MakeTOC(nav, body, "h2", "h3")
@@ -36,13 +40,6 @@ func (me *Specification) SaveAs(filename string) {
 		),
 	)
 	page.SaveAs(filename)
-}
-
-func Project(goal *Element, v ...interface{}) *Element {
-	return Wrap(
-		H2("Goal"),
-		P(goal),
-	).With(v...)
 }
 
 func Goal(v ...interface{}) *Element {

@@ -5,11 +5,12 @@ import . "github.com/gregoryv/web"
 func NewDeko() *Specification {
 	n := NewHn(2)
 
-	p := Project(
-		Goal(`Simplify time keeping between consultants and
-		customers`),
+	name := "Deko project specification"
+	goal := Goal(`Simplify time keeping between consultants and
+		customers`)
 
-		Background(`Working by the hour involves keeping track of
+	background := Background(
+		P(`Working by the hour involves keeping track of
 		those working hours and at certain intervals transform the
 		accumulated time to an invoice for the customer.`),
 
@@ -29,5 +30,5 @@ func NewDeko() *Specification {
 		//
 	)
 
-	return NewSpecification("Deko project specification", p)
+	return NewSpecification(name, goal, background)
 }

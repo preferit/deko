@@ -16,7 +16,6 @@
 
 Simplify time keeping between consultants and
 customers
-
 ## [Background](#background)
 
 Working by the hour involves keeping track of
@@ -72,5 +71,6 @@ CEO opens excelfile for consultant that is contracted and
 finds the summary for the specific project.
 What do you do with the summary? enter it into
 an invocing system, which?
+
 
 
