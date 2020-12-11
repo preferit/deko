@@ -1,9 +1,6 @@
 package deko
 
 import (
-	"regexp"
-	"strings"
-
 	. "github.com/gregoryv/web"
 )
 
@@ -23,7 +20,10 @@ func (me *Specification) SaveAs(filename string) {
 			Head(
 				Style(theme()),
 			),
-			Body(me.project)),
+			Body(
+				me.project,
+			),
+		),
 	)
 	page.SaveAs(filename)
 }
@@ -44,22 +44,3 @@ func Goal(v ...interface{}) *Element {
 func Background(v ...interface{}) *Element {
 	return Section(Class("background"), H2("Background")).With(v...)
 }
-
-func Features(v ...interface{}) *Element {
-	ul := Ul(Class("features"))
-	for _, f := range v {
-		ul.With(Li(f))
-	}
-	return ul
-}
-
-func Feature(name string) *Element {
-	return A(Href("#"+FeatureIdFrom(name)), name)
-}
-
-func FeatureIdFrom(name string) string {
-	txt := idChars.ReplaceAllString(name, "")
-	return strings.ToLower(txt)
-}
-
-var idChars = regexp.MustCompile(`\W`)

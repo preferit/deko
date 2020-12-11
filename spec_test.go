@@ -11,4 +11,5 @@ func Test_example_spec(t *testing.T) {
 	spec := NewSpecification(project)
 	spec.SaveAs("docs/specification.md")
 	spec.SaveAs("docs/specification.html")
+
 }

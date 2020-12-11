@@ -28,13 +28,8 @@ func NewDeko() *Element {
 		project per line and enter number of hours for each day. There
 		are also rows for vacation, illness and other non project
 		specific tasks that may need time tracking. The file is
-		prepared with expected number of working hours for each
-		day.`),
-
-		Features(
-			Feature("monthly view"),
-			Feature("yearly summary"),
-		),
+		prepared in advance by the CEO each year, with expected number
+		of working hours for each day.`),
 
 		//
 	)
