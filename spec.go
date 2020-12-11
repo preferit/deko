@@ -4,13 +4,15 @@ import (
 	. "github.com/gregoryv/web"
 )
 
-func NewSpecification(project *Element) *Specification {
+func NewSpecification(name string, project *Element) *Specification {
 	return &Specification{
+		name:    name,
 		project: project,
 	}
 }
 
 type Specification struct {
+	name    string
 	project *Element
 }
 
@@ -21,20 +23,21 @@ func (me *Specification) SaveAs(filename string) {
 				Style(theme()),
 			),
 			Body(
-				me.project,
+				Article(
+					H1(me.name),
+					me.project,
+				),
 			),
 		),
 	)
 	page.SaveAs(filename)
 }
 
-func Project(name string, goal *Element, v ...interface{}) *Element {
-	return Article(
-		H1(name),
+func Project(goal *Element, v ...interface{}) *Element {
+	return Wrap(
 		H2("Goal"),
 		P(goal),
 	).With(v...)
-
 }
 
 func Goal(v ...interface{}) *Element {

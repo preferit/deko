@@ -2,11 +2,10 @@ package deko
 
 import . "github.com/gregoryv/web"
 
-func NewDeko() *Element {
+func NewDeko() *Specification {
 	n := NewHn(2)
 
-	p := Project("Deko project specification",
-
+	p := Project(
 		Goal(`Simplify time keeping between consultants and
 		customers`),
 
@@ -30,5 +29,5 @@ func NewDeko() *Element {
 		//
 	)
 
-	return p
+	return NewSpecification("Deko project specification", p)
 }
