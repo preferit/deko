@@ -21,9 +21,7 @@ func NewGoals(n *Hn) *Element {
 	return Wrap(
 		n.H1("Goals"),
 
-		P(`The main goal of this project is to "`, main, `". Time
-		keeping is defined as the process of logging, reporting
-		and transforming working hours into invoices.`),
+		P(`The main goal of this project is to "`, main, `".`),
 		//
 	)
 }

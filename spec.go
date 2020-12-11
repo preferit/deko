@@ -1,6 +1,7 @@
 package deko
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 	"time"
@@ -58,7 +59,9 @@ func (me *Specification) SaveAs(filename string) {
 	renameElement(body, "requirement", "div")
 	renameElement(me.goals, "maingoal", "em")
 	renameElement(me.goals, "goal", "wrapper")
-	anchorDt(me.references)
+	refs := anchorDt(me.references)
+
+	linkReferences(me.goals, refs)
 
 	toc.MakeTOC(nav, body, "h2", "h3", "h4")
 	page := NewPage(
@@ -70,6 +73,45 @@ func (me *Specification) SaveAs(filename string) {
 		),
 	)
 	page.SaveAs(filename)
+}
+
+func linkReferences(dst *Element, refs map[string]string) {
+	web.WalkElements(dst, func(e *web.Element) {
+		for i, c := range e.Children {
+			switch c := c.(type) {
+			case string:
+				lc := strings.ToLower(c)
+
+			replace:
+				for txt, refId := range refs {
+					j := strings.Index(lc, txt)
+					if j > -1 {
+						k := j + len(txt)
+						e.Children[i] = fmt.Sprintf(`%s<a href="#%s">%s</a>%s`,
+							c[:j], refId, c[j:k], c[k:],
+						)
+						break replace
+					}
+				}
+			}
+
+		}
+	})
+}
+
+// anchorDt creates ids for all dt elements and returns a map of map[txt]id
+func anchorDt(root *Element) map[string]string {
+	refs := make(map[string]string)
+
+	web.WalkElements(root, func(e *web.Element) {
+		if e.Name == "dt" {
+			txt := e.Text()
+			id := genID(txt)
+			refs[strings.ToLower(txt)] = id
+			e.With(Id(id))
+		}
+	})
+	return refs
 }
 
 func FindFirstChild(root *Element, name string) (found *Element) {
@@ -97,14 +139,6 @@ func renameElement(root *Element, from, to string) {
 	web.WalkElements(root, func(e *web.Element) {
 		if e.Name == from {
 			e.Name = to
-		}
-	})
-}
-
-func anchorDt(root *Element) {
-	web.WalkElements(root, func(e *web.Element) {
-		if e.Name == "dt" {
-			e.With(Id(genID(e.Text())))
 		}
 	})
 }
