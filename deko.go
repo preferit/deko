@@ -5,19 +5,32 @@ import . "github.com/gregoryv/web"
 func NewDeko() *Specification {
 	n := NewHn(2)
 
-	s := &Specification{
-		name: "Deko project specification",
-	}
-	s.goals = Section(
-		P(`The main goal of this project is to "`,
-			MainGoal("Simplify time keeping between consultants and customers."),
+	s := &Specification{}
+	s.name = "Deko project specification"
+	s.goals = NewGoals(n)
+	s.background = NewBackground(n)
+	s.currentState = NewCurrentState(n)
+	s.changelog = NewChangelog(n)
+	s.references = NewReferences(n)
+	return s
+}
 
-			`". Time keeping is defined as the process of logging,
-			reporting and transforming working hours into invoices.`,
-		),
+func NewGoals(n *Hn) *Element {
+	main := MainGoal("Simplify time keeping between consultants and customers.")
+
+	return Wrap(
+		n.H1("Goals"),
+
+		P(`The main goal of this project is to "`, main, `". Time
+		keeping is defined as the process of logging, reporting
+		and transforming working hours into invoices.`),
+		//
 	)
+}
 
-	s.background = Background(
+func NewBackground(n *Hn) *Element {
+	return Wrap(
+		n.H1("Background"),
 		P(`Working by the hour involves keeping track of
 		those working hours and at certain intervals transform the
 		accumulated time to an invoice for the customer.`),
@@ -36,9 +49,6 @@ func NewDeko() *Specification {
 
 		//
 	)
-	s.currentState = NewCurrentState(n)
-	s.changelog = NewChangelog(n)
-	return s
 }
 
 func NewCurrentState(n *Hn) *Element {
@@ -54,7 +64,7 @@ func NewCurrentState(n *Hn) *Element {
 	    and a yearly summary. Consultants register a project per line
 	    and enter number of hours for each day. There are also rows
 	    for vacation, illness and other non project specific tasks
-	    that may need time tracking.`),
+	    that may need time keeping.`),
 
 		n.H2("CEO prepares spreadsheet file for consultant"),
 
@@ -87,5 +97,19 @@ func NewCurrentState(n *Hn) *Element {
 		Requirements(R1),
 
 		//
+	)
+}
+
+func NewReferences(n *Hn) *Element {
+	return Wrap(
+		n.H1("References"),
+
+		Dl(
+			Dt("Time keeping"),
+
+			Dd(`The process of logging, reporting and transforming
+			working hours into invoices.`),
+			//
+		),
 	)
 }

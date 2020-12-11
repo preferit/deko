@@ -13,9 +13,10 @@ import (
 type Specification struct {
 	name         string
 	goals        *Element
-	background   interface{}
+	background   *Element
 	currentState *Element
-	changelog    interface{}
+	changelog    *Element
+	references   *Element
 }
 
 func (me *Specification) SaveAs(filename string) {
@@ -29,16 +30,13 @@ func (me *Specification) SaveAs(filename string) {
 		mainGoal,
 		nav,
 		Article(
-			H2("Goals"),
 			me.goals,
 			openQuestions,
-			H2("Background"),
 			me.background,
-
-			H2("Current state"),
 			me.currentState,
 		),
 		me.changelog,
+		me.references,
 	)
 
 	// add open questions
@@ -60,6 +58,7 @@ func (me *Specification) SaveAs(filename string) {
 	renameElement(body, "requirement", "div")
 	renameElement(me.goals, "maingoal", "em")
 	renameElement(me.goals, "goal", "wrapper")
+	anchorDt(me.references)
 
 	toc.MakeTOC(nav, body, "h2", "h3", "h4")
 	page := NewPage(
@@ -86,7 +85,6 @@ func FindFirstChild(root *Element, name string) (found *Element) {
 
 func findQuestions(root *Element) []*Element {
 	res := make([]*Element, 0)
-
 	web.WalkElements(root, func(e *web.Element) {
 		if e.Name == "question" {
 			res = append(res, e)
@@ -99,6 +97,14 @@ func renameElement(root *Element, from, to string) {
 	web.WalkElements(root, func(e *web.Element) {
 		if e.Name == from {
 			e.Name = to
+		}
+	})
+}
+
+func anchorDt(root *Element) {
+	web.WalkElements(root, func(e *web.Element) {
+		if e.Name == "dt" {
+			e.With(Id(genID(e.Text())))
 		}
 	})
 }
