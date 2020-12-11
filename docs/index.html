@@ -30,16 +30,36 @@ margin-left: 3.236em;
 color: darkred;
 font-weight: bold;
 }
+a:link {
+text-decoration: none;
+}
+a:link:hover {
+text-decoration: underline;
+}
+h1 a, h2 a, h3 a, h4 a {
+color: black;
+}
 </style>
 </head>
 <body>
-<article>
 <h1>Deko project specification</h1>
-<h2>Goal</h2>
+<nav><ul>
+<li class="h2"><a href="#goal">Goal</a></li>
+<li class="h2"><a href="#background">Background</a></li>
+<li class="h2"><a href="#currentstateofaffairs">Current state of affairs</a></li>
+<li class="h3"><a href="#consultanttrackworkinghours">Consultant track working hours</a></li>
+<li class="h3"><a href="#ceopreparesexcelfileforconsultant">CEO prepares excel file for consultant</a></li>
+<li class="h3"><a href="#consultantreportsworkinghourstoceo">Consultant reports working hours to CEO</a></li>
+<li class="h3"><a href="#consultantreportsworkinghourstocontractor">Consultant reports working hours to contractor</a></li>
+<li class="h3"><a href="#ceocreatesinvoiceforcustomer">CEO creates invoice for customer</a></li>
+</ul>
+</nav>
+<article>
+<h2 id="goal"><a href="#goal"><a href="#goal">Goal</a></a></h2>
 <p>Simplify time keeping between consultants and
 		customers</p>
 <section class="background">
-<h2>Background</h2>
+<h2 id="background"><a href="#background"><a href="#background">Background</a></a></h2>
 Working by the hour involves keeping track of
 		those working hours and at certain intervals transform the
 		accumulated time to an invoice for the customer.</section>
@@ -54,8 +74,8 @@ Working by the hour involves keeping track of
 		CEO to do it when sending the invoice and there are
 		contractors who expect the consultant to report the hours
 		directly.</p>
-<h2>Current state of affairs</h2>
-<h3>Consultant track working hours</h3>
+<h2 id="currentstateofaffairs"><a href="#currentstateofaffairs"><a href="#currentstateofaffairs">Current state of affairs</a></a></h2>
+<h3 id="consultanttrackworkinghours"><a href="#consultanttrackworkinghours"><a href="#consultanttrackworkinghours">Consultant track working hours</a></a></h3>
 <p>Preferits consultants use excel file for gathering the
 	    hours and reporting them to the CEO. The file is prepared in
 	    advance by the CEO each year, with expected number of working
@@ -64,7 +84,7 @@ Working by the hour involves keeping track of
 	    per line and enter number of hours for each day. There are
 	    also rows for vacation, illness and other non project specific
 	    tasks that may need time tracking.</p>
-<h3>CEO prepares excel file for consultant</h3>
+<h3 id="ceopreparesexcelfileforconsultant"><a href="#ceopreparesexcelfileforconsultant"><a href="#ceopreparesexcelfileforconsultant">CEO prepares excel file for consultant</a></a></h3>
 <p>Each year the CEO creates a new excel file based on a
 		previous one. He goes through each month and verifies that the
 		calendar is correct and changes the expected working hours for
@@ -72,12 +92,12 @@ Working by the hour involves keeping track of
 		consultant. If the consultant has overtime left from last year
 		it added to this years file. The new file is then sent out to
 		the consultant.</p>
-<h3>Consultant reports working hours to CEO</h3>
+<h3 id="consultantreportsworkinghourstoceo"><a href="#consultantreportsworkinghourstoceo"><a href="#consultantreportsworkinghourstoceo">Consultant reports working hours to CEO</a></a></h3>
 <p>Consultant e-mails the excel file to the CEO</p>
-<h3>Consultant reports working hours to contractor</h3>
+<h3 id="consultantreportsworkinghourstocontractor"><a href="#consultantreportsworkinghourstocontractor"><a href="#consultantreportsworkinghourstocontractor">Consultant reports working hours to contractor</a></a></h3>
 <p>Consultant opens the excel file to find the summary for a
 		specific project and mails that summary to the contractor.</p>
-<h3>CEO creates invoice for customer</h3>
+<h3 id="ceocreatesinvoiceforcustomer"><a href="#ceocreatesinvoiceforcustomer"><a href="#ceocreatesinvoiceforcustomer">CEO creates invoice for customer</a></a></h3>
 <p>CEO opens excelfile for consultant that is contracted and
 		finds the summary for the specific project.<span class="question">What do you do with the summary? enter it into
 		    an invocing system, which?</span></p>

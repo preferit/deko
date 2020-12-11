@@ -2,6 +2,7 @@ package deko
 
 import (
 	. "github.com/gregoryv/web"
+	"github.com/gregoryv/web/toc"
 )
 
 func NewSpecification(name string, project *Element) *Specification {
@@ -17,17 +18,21 @@ type Specification struct {
 }
 
 func (me *Specification) SaveAs(filename string) {
+	nav := Nav()
+	body := Body(
+		H1(me.name),
+		nav,
+		Article(
+			me.project,
+		),
+	)
+	toc.MakeTOC(nav, body, "h2", "h3")
 	page := NewPage(
 		Html(
 			Head(
 				Style(theme()),
 			),
-			Body(
-				Article(
-					H1(me.name),
-					me.project,
-				),
-			),
+			body,
 		),
 	)
 	page.SaveAs(filename)

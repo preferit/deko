@@ -2,12 +2,22 @@
 
 # Deko project specification
 
-## Goal
+- [Goal](#goal)
+- [Background](#background)
+- [Current state of affairs](#currentstateofaffairs)
+- [Consultant track working hours](#consultanttrackworkinghours)
+- [CEO prepares excel file for consultant](#ceopreparesexcelfileforconsultant)
+- [Consultant reports working hours to CEO](#consultantreportsworkinghourstoceo)
+- [Consultant reports working hours to contractor](#consultantreportsworkinghourstocontractor)
+- [CEO creates invoice for customer](#ceocreatesinvoiceforcustomer)
+
+
+## [Goal](#goal)
 
 Simplify time keeping between consultants and
 customers
 
-## Background
+## [Background](#background)
 
 Working by the hour involves keeping track of
 those working hours and at certain intervals transform the
@@ -25,9 +35,9 @@ CEO to do it when sending the invoice and there are
 contractors who expect the consultant to report the hours
 directly.
 
-## Current state of affairs
+## [Current state of affairs](#currentstateofaffairs)
 
-### Consultant track working hours
+### [Consultant track working hours](#consultanttrackworkinghours)
 
 Preferits consultants use excel file for gathering the
 hours and reporting them to the CEO. The file is prepared in
@@ -38,7 +48,7 @@ per line and enter number of hours for each day. There are
 also rows for vacation, illness and other non project specific
 tasks that may need time tracking.
 
-### CEO prepares excel file for consultant
+### [CEO prepares excel file for consultant](#ceopreparesexcelfileforconsultant)
 
 Each year the CEO creates a new excel file based on a
 previous one. He goes through each month and verifies that the
@@ -48,15 +58,15 @@ consultant. If the consultant has overtime left from last year
 it added to this years file. The new file is then sent out to
 the consultant.
 
-### Consultant reports working hours to CEO
+### [Consultant reports working hours to CEO](#consultantreportsworkinghourstoceo)
 
 Consultant e-mails the excel file to the CEO
-### Consultant reports working hours to contractor
+### [Consultant reports working hours to contractor](#consultantreportsworkinghourstocontractor)
 
 Consultant opens the excel file to find the summary for a
 specific project and mails that summary to the contractor.
 
-### CEO creates invoice for customer
+### [CEO creates invoice for customer](#ceocreatesinvoiceforcustomer)
 
 CEO opens excelfile for consultant that is contracted and
 finds the summary for the specific project.

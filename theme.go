@@ -33,5 +33,14 @@ func theme() *CSS {
 		"color: darkred",
 		"font-weight: bold",
 	)
+	css.Style("a:link",
+		"text-decoration: none",
+	)
+	css.Style("a:link:hover",
+		"text-decoration: underline",
+	)
+	css.Style("h1 a, h2 a, h3 a, h4 a",
+		"color: black",
+	)
 	return css
 }
