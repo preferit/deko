@@ -1,3 +1,3 @@
-module github.com/gregoryv/deko
+module github.com/preferit/deko
 
 go 1.15
