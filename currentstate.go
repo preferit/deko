@@ -11,11 +11,11 @@ func NewCurrentState(n *Hn) *Element {
 		P(`Preferits consultants use excel file for gathering the
 	    hours and reporting them to the CEO. The file is prepared in
 	    advance by the CEO each year, with expected number of working
-	    hours for each day. The file contains monthly
-	    sheets and a yearly summary. Consultants register a project
-	    per line and enter number of hours for each day. There are
-	    also rows for vacation, illness and other non project specific
-	    tasks that may need time tracking.`),
+	    hours for each day. The file contains monthly sheets and a
+	    yearly summary. Consultants register a project per line and
+	    enter number of hours for each day. There are also rows for
+	    vacation, illness and other non project specific tasks that
+	    may need time tracking.`),
 
 		n.H2("CEO prepares excel file for consultant"),
 
