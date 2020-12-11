@@ -14,11 +14,15 @@ func NewDeko() *Element {
 
 		P(`Preferit is a small business with ten consultants and one
 		chief executive officer(CEO). Consultants report back to the
-		CEO on a monthly basis who then further sends invoices to
-		customers. Sometimes the customer is another consultantcy firm
-		which has subcontracted us. Also at times when consultants are
-		subcontracted working hours need to be reported both to the
-		CEO and the other contracting firm.`),
+		CEO on a monthly basis. He then compiles the times to one or
+		more invoices and sends them to customers. Sometimes the
+		customer is another consultantcy firm which has contracted
+		Preferit. Also at times when consultants are sub-contracted
+		this way, working hours need to be reported both to the CEO
+		and the other contracting firm. Sometimes it's enough for the
+		CEO to do it when sending the invoice and there are
+		contractors who expect the consultant to report the hours
+		directly.`),
 
 		H2("Current state of affairs"),
 
