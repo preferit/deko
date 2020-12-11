@@ -11,10 +11,11 @@ import (
 )
 
 type Specification struct {
-	name       string
-	goals      *Element
-	background interface{}
-	changelog  interface{}
+	name         string
+	goals        *Element
+	background   interface{}
+	currentState *Element
+	changelog    interface{}
 }
 
 func (me *Specification) SaveAs(filename string) {
@@ -33,6 +34,9 @@ func (me *Specification) SaveAs(filename string) {
 			openQuestions,
 			H2("Background"),
 			me.background,
+
+			H2("Current state"),
+			me.currentState,
 		),
 		me.changelog,
 	)

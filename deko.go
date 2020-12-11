@@ -34,9 +34,9 @@ func NewDeko() *Specification {
 		contractors who expect the consultant to report the hours
 		directly.`),
 
-		NewCurrentState(n),
 		//
 	)
+	s.currentState = NewCurrentState(n)
 	s.changelog = NewChangelog(n)
 	return s
 }
