@@ -93,6 +93,11 @@ func NewCurrentState(n *Hn) *Element {
 	)
 }
 
+var (
+	R1 = Requirement(`CEO must easily receive/find the sum eligible for
+		invoicing.`)
+)
+
 func NewReferences(n *Hn) *Element {
 	return Section(
 		n.H1("References"),
