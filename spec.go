@@ -25,6 +25,7 @@ type Specification struct {
 		secondary []interface{}
 	}
 	background interface{}
+	changelog  interface{}
 }
 
 func (me *Specification) SaveAs(filename string) {
@@ -41,6 +42,7 @@ func (me *Specification) SaveAs(filename string) {
 			H2("Background"),
 			me.background,
 		),
+		me.changelog,
 	)
 
 	// add open questions

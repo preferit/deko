@@ -41,9 +41,7 @@ func NewCurrentState(n *Hn) *Element {
 		P(`CEO opens spreadsheet file for consultant that is
 		contracted and finds the summary for the specific project. The
 		accumulated hours that are eligeble for invoicing are manually
-		entered into the financial system.`,
-
-			Question(`Which financial system do you use today?`),
+		entered into the financial system Fortnox.`,
 		),
 
 		//

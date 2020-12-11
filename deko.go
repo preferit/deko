@@ -32,6 +32,6 @@ func NewDeko() *Specification {
 	)
 
 	spec := NewSpecification(name, goal, background)
-
+	spec.changelog = NewChangelog(n)
 	return spec
 }
