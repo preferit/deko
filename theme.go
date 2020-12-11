@@ -29,18 +29,17 @@ func theme() *CSS {
 	css.Style("li.h4",
 		"margin-left: 3.236em",
 	)
-	css.Style(".question",
-		"color: darkred",
-		"font-weight: bold",
-	)
 	css.Style("a:link",
 		"text-decoration: none",
 	)
 	css.Style("a:link:hover",
 		"text-decoration: underline",
 	)
-	css.Style("h1 a, h2 a, h3 a, h4 a",
+	css.Style("h1 a, h2 a, h3 a",
 		"color: black",
+	)
+	css.Style("h4.question",
+		"color: darkred",
 	)
 	return css
 }

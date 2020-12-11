@@ -45,16 +45,16 @@ func (me *Specification) SaveAs(filename string) {
 			qid := genID(q.Text())
 			q.With(Id(qid))
 			ul.With(Li(
-				A(Href("#"+qid), q.Text())),
+				A(Href("#"+qid), Class("question"), q.Text())),
 			)
 		}
 		openQuestions.With(H2("Open questions"), ul)
 	}
 
 	// fix all non html elements
-	renameElement(body, "question", "span")
+	renameElement(body, "question", "h4")
 
-	toc.MakeTOC(nav, body, "h2", "h3")
+	toc.MakeTOC(nav, body, "h2", "h3", "h4")
 	page := NewPage(
 		Html(
 			Head(
