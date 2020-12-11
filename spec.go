@@ -28,11 +28,13 @@ func (me *Specification) SaveAs(filename string) {
 	openQuestions := Wrap()
 	body := Body(
 		H1(me.name),
+		me.goal,
 		nav,
 		Article(
-			H2("Goal"),
+			H2("Goals"),
 			me.goal,
 			openQuestions,
+			H2("Background"),
 			me.background,
 		),
 	)
@@ -90,7 +92,7 @@ func Goal(v ...interface{}) *Element {
 }
 
 func Background(v ...interface{}) *Element {
-	return Section(Class("background"), H2("Background")).With(v...)
+	return Section(Class("background")).With(v...)
 }
 
 func Question(v string) *Element {
