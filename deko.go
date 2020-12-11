@@ -8,7 +8,14 @@ func NewDeko() *Specification {
 	s := &Specification{
 		name: "Deko project specification",
 	}
-	s.goals = MainGoal("Simplify time keeping between consultants and customers.")
+	s.goals = Section(
+		P(`The main goal of this project is to "`,
+			MainGoal("Simplify time keeping between consultants and customers."),
+
+			`". Time keeping is defined as the process of logging,
+			reporting and transforming working hours into invoices.`,
+		),
+	)
 
 	s.background = Background(
 		P(`Working by the hour involves keeping track of

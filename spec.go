@@ -29,7 +29,7 @@ func (me *Specification) SaveAs(filename string) {
 		nav,
 		Article(
 			H2("Goals"),
-			mainGoal,
+			me.goals,
 			openQuestions,
 			H2("Background"),
 			me.background,
@@ -55,6 +55,7 @@ func (me *Specification) SaveAs(filename string) {
 	renameElement(body, "question", "h4")
 	renameElement(body, "requirement", "div")
 	renameElement(me.goals, "maingoal", "em")
+	renameElement(me.goals, "goal", "wrapper")
 
 	toc.MakeTOC(nav, body, "h2", "h3", "h4")
 	page := NewPage(
