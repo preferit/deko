@@ -31,5 +31,7 @@ func NewDeko() *Specification {
 		//
 	)
 
-	return NewSpecification(name, goal, background)
+	spec := NewSpecification(name, goal, background)
+
+	return spec
 }
