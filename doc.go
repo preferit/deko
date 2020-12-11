@@ -1,5 +1,5 @@
 /*
-Package deko specifification of consultants time reporting
+Package deko provides the specifification of time reporting
 
 This is an exercise in how to work with software specifications using
 the go programing language.
