@@ -21,4 +21,18 @@ which has subcontracted us. Also at times when consultants are
 subcontracted working hours need to be reported both to the
 CEO and the other contracting firm.
 
+## Current state of affairs
+
+Preferits consultants use excel spreadsheets for gathering
+the hours and reporting them to the CEO. The file contains
+monthly sheets and a yearly summary. Consultants register a
+project per line and enter number of hours for each day. There
+are also rows for vacation, illness and other non project
+specific tasks that may need time tracking. The file is
+prepared with expected number of working hours for each
+day.
+
+- [monthly view](#monthlyview)
+- [yearly summary](#yearlysummary)
+
 
