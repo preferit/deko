@@ -41,6 +41,9 @@ func theme() *CSS {
 	css.Style("h4.question",
 		"color: darkred",
 	)
-
+	css.Style(".timestamp",
+		"width: 100%",
+		"text-align: right",
+	)
 	return css
 }

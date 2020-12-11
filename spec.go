@@ -3,6 +3,7 @@ package deko
 import (
 	"regexp"
 	"strings"
+	"time"
 
 	"github.com/gregoryv/web"
 	. "github.com/gregoryv/web"
@@ -32,6 +33,8 @@ func (me *Specification) SaveAs(filename string) {
 	nav := Nav()
 	openQuestions := Wrap()
 	body := Body(
+		Div(Class("timestamp"), "Last update: ", time.Now().Format("2006-01-02 15:04")),
+
 		H1(me.name),
 		me.goal.main,
 		nav,

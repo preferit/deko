@@ -16,6 +16,7 @@ func NewChangelog(n *Hn) *Element {
 		),
 
 		Version(n, "0.1.0-unreleased", "",
+			"Elicit requirements of the current state",
 			"Add initial background and goal of project",
 		),
 	)
