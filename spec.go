@@ -10,16 +10,20 @@ import (
 )
 
 func NewSpecification(name string, goal, background interface{}) *Specification {
-	return &Specification{
+	spec := &Specification{
 		name:       name,
-		goal:       goal,
 		background: background,
 	}
+	spec.goal.main = goal
+	return spec
 }
 
 type Specification struct {
-	name       string
-	goal       interface{}
+	name string
+	goal struct {
+		main      interface{}
+		secondary []interface{}
+	}
 	background interface{}
 }
 
@@ -28,11 +32,11 @@ func (me *Specification) SaveAs(filename string) {
 	openQuestions := Wrap()
 	body := Body(
 		H1(me.name),
-		me.goal,
+		me.goal.main,
 		nav,
 		Article(
 			H2("Goals"),
-			me.goal,
+			me.goal.main,
 			openQuestions,
 			H2("Background"),
 			me.background,
@@ -104,13 +108,4 @@ var idChars = regexp.MustCompile(`\W`)
 func genID(v string) string {
 	txt := idChars.ReplaceAllString(v, "")
 	return strings.ToLower(txt)
-}
-
-func idOf(e *web.Element) string {
-	for _, attr := range e.Attributes {
-		if attr.Name == "id" {
-			return attr.Val
-		}
-	}
-	return ""
 }
