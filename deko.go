@@ -5,12 +5,12 @@ import . "github.com/gregoryv/web"
 func NewDeko() *Specification {
 	n := NewHn(2)
 
-	name := "Deko project specification"
+	s := &Specification{
+		name: "Deko project specification",
+	}
+	s.goals = MainGoal("Simplify time keeping between consultants and customers.")
 
-	goal := Goal(`Simplify time keeping between consultants and
-		          customers.`)
-
-	background := Background(
+	s.background = Background(
 		P(`Working by the hour involves keeping track of
 		those working hours and at certain intervals transform the
 		accumulated time to an invoice for the customer.`),
@@ -30,10 +30,8 @@ func NewDeko() *Specification {
 		NewCurrentState(n),
 		//
 	)
-
-	spec := NewSpecification(name, goal, background)
-	spec.changelog = NewChangelog(n)
-	return spec
+	s.changelog = NewChangelog(n)
+	return s
 }
 
 func NewCurrentState(n *Hn) *Element {

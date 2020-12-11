@@ -10,21 +10,9 @@ import (
 	"github.com/gregoryv/web/toc"
 )
 
-func NewSpecification(name string, goal, background interface{}) *Specification {
-	spec := &Specification{
-		name:       name,
-		background: background,
-	}
-	spec.goal.main = goal
-	return spec
-}
-
 type Specification struct {
-	name string
-	goal struct {
-		main      interface{}
-		secondary []interface{}
-	}
+	name       string
+	goals      *Element
 	background interface{}
 	changelog  interface{}
 }
@@ -32,15 +20,16 @@ type Specification struct {
 func (me *Specification) SaveAs(filename string) {
 	nav := Nav()
 	openQuestions := Wrap()
+	mainGoal := FindFirstChild(me.goals, "maingoal")
 	body := Body(
 		Div(Class("timestamp"), "Last update: ", time.Now().Format("2006-01-02 15:04")),
 
 		H1(me.name),
-		me.goal.main,
+		mainGoal,
 		nav,
 		Article(
 			H2("Goals"),
-			me.goal.main,
+			mainGoal,
 			openQuestions,
 			H2("Background"),
 			me.background,
@@ -65,6 +54,7 @@ func (me *Specification) SaveAs(filename string) {
 	// fix all non html elements
 	renameElement(body, "question", "h4")
 	renameElement(body, "requirement", "div")
+	renameElement(me.goals, "maingoal", "em")
 
 	toc.MakeTOC(nav, body, "h2", "h3", "h4")
 	page := NewPage(
@@ -76,6 +66,17 @@ func (me *Specification) SaveAs(filename string) {
 		),
 	)
 	page.SaveAs(filename)
+}
+
+func FindFirstChild(root *Element, name string) (found *Element) {
+	web.WalkElements(root, func(e *web.Element) {
+		if e.Name == name {
+			if found == nil {
+				found = e
+			}
+		}
+	})
+	return
 }
 
 func findQuestions(root *Element) []*Element {
@@ -97,8 +98,12 @@ func renameElement(root *Element, from, to string) {
 	})
 }
 
-func Goal(v ...interface{}) *Element {
-	return Em(v...)
+func MainGoal(v string) *Element {
+	return NewElement("maingoal", Class("goal main-goal"), v)
+}
+
+func Goal(v string) *Element {
+	return NewElement("goal", Class("goal"), v)
 }
 
 func Background(v ...interface{}) *Element {
