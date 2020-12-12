@@ -42,9 +42,22 @@ func theme() *CSS {
 	css.Style("h1 a, h2 a, h3 a, h4 a",
 		"color: black",
 	)
-	css.Style("h4.question",
+
+	css.Style("li.h5",
+		"text-align: right",
+		"border-bottom: 1px dotted #727272",
+	)
+	css.Style("li.h5 a", // questions
 		"color: darkred",
 	)
+	css.Style(".question",
+		"text-align: right",
+		"border-bottom: 1px dotted #727272",
+	)
+	css.Style(".question a", // questions
+		"color: darkred",
+	)
+
 	css.Style(".timestamp",
 		"width: 100%",
 		"text-align: right",

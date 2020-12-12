@@ -37,14 +37,14 @@ func (me *Specification) SaveAs(filename string) {
 	)
 
 	// fix all non html elements
-	renameElement(body, "question", "h4")
+	renameElement(body, "question", "h5")
 	renameElement(body, "requirement", "div")
 	renameElement(me.Goals, "maingoal", "em")
 	renameElement(me.Goals, "goal", "wrapper")
 	renameElement(me.CurrentState, "issue", "div")
 	refs := anchorDt(me.References)
 
-	toc.MakeTOC(nav, body, "h2", "h3")
+	toc.MakeTOC(nav, body, "h2", "h3", "h5")
 
 	linkReferences(me.Goals, refs)
 	linkReferences(me.CurrentState, refs)

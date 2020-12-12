@@ -39,7 +39,18 @@ text-decoration: underline;
 h1 a, h2 a, h3 a, h4 a {
 color: black;
 }
-h4.question {
+li.h5 {
+text-align: right;
+border-bottom: 1px dotted #727272;
+}
+li.h5 a {
+color: darkred;
+}
+.question {
+text-align: right;
+border-bottom: 1px dotted #727272;
+}
+.question a {
 color: darkred;
 }
 .timestamp {
@@ -55,13 +66,14 @@ list-style-type: square;
 </style>
 </head>
 <body>
-<div class="timestamp">Last update: 2020-12-12 09:53</div>
+<div class="timestamp">Last update: 2020-12-12 10:12</div>
 <h1>Deko project specification</h1>
 <em class="goal main-goal">Simplify <a href="#timekeeping">time keeping</a> between consultants and customers.</em><nav><ul>
 <li class="h2"><a href="#goals">Goals</a></li>
 <li class="h3"><a href="#background">Background</a></li>
 <li class="h2"><a href="#currentstate">Current state</a></li>
 <li class="h3"><a href="#consultantlogsworkinghours">Consultant logs working hours</a></li>
+<li class="h5"><a href="#whatfeaturesdoescurrentlogprocessprovide">What features does current log process provide?</a></li>
 <li class="h3"><a href="#ceopreparesspreadsheetfileforconsultant">CEO prepares spreadsheet file for consultant</a></li>
 <li class="h3"><a href="#consultantreportsworkinghourstoceo">Consultant reports working hours to CEO</a></li>
 <li class="h3"><a href="#consultantreportsworkinghourstocontractor">Consultant reports working hours to contractor</a></li>
@@ -93,15 +105,19 @@ list-style-type: square;
 </section>
 <section>
 <h2 id="currentstate"><a href="#currentstate">Current state</a></h2>
+<p>By describing how <a href="#timekeeping">time keeping</a> is currently managed we
+		define expected features, highlight issues and elicit
+		requirements for future solutions.</p>
 <h3 id="consultantlogsworkinghours"><a href="#consultantlogsworkinghours">Consultant logs working hours</a></h3>
-<p>Preferits consultants use <a href="#spreadsheetfile">spreadsheet file</a> for logging the
+<p>Preferits consultants use spreadsheet file for logging the
 	    hours and reporting them to the CEO. The file is prepared in
 	    advance by the CEO each year, with expected number of working
 	    hours for each day. The file contains monthly sheets and a
 	    yearly summary. Consultants register a project per line and
 	    enter number of hours for each day. There are also rows for
 	    vacation, illness and other non project specific tasks that
-	    may need time keeping.</p>
+	    may need <a href="#timekeeping">time keeping</a>.</p>
+<h5 class="question" id="whatfeaturesdoescurrentlogprocessprovide"><a href="#whatfeaturesdoescurrentlogprocessprovide">What features does current log process provide?</a></h5>
 <h4 id="issues"><a href="#issues">Issues</a></h4>
 <ul class="issues">
 <li><div class="issue">The monthly sheet is quite large and it's easy to

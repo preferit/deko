@@ -52,6 +52,10 @@ func NewCurrentState(n *Hn) *Element {
 	s := Section(
 		n.H1("Current state"),
 
+		P(`By describing how time keeping is currently managed we
+		define expected features, highlight issues and elicit
+		requirements for future solutions.`),
+
 		n.H2("Consultant logs working hours"),
 
 		P(`Preferits consultants use spreadsheet file for logging the
@@ -62,6 +66,8 @@ func NewCurrentState(n *Hn) *Element {
 	    enter number of hours for each day. There are also rows for
 	    vacation, illness and other non project specific tasks that
 	    may need time keeping.`),
+
+		Question("What features does current log process provide?"),
 
 		n.H3("Issues"),
 		Issues(
