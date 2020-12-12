@@ -138,7 +138,24 @@ func findQuestions(root *Element) []*Element {
 }
 
 func Question(v string) *Element {
-	return NewElement("question", Class("question"), v)
+	return Table(Class("question"),
+		Tr(
+			Td(
+				Class("question"),
+				NewElement("question", v),
+			),
+			Td(" "),
+			Td(
+				Class("answer"),
+				A(
+					Href(
+						fmt.Sprintf("mailto:gregory@preferit.se?subject=%s", v),
+					),
+					"Answer",
+				),
+			),
+		),
+	)
 }
 
 func Issues(v ...interface{}) *Element {

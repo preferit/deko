@@ -43,20 +43,39 @@ func theme() *CSS {
 		"color: black",
 	)
 
+	// questions related
 	css.Style("li.h5",
 		"text-align: right",
 		"border-bottom: 1px dotted #727272",
 	)
-	css.Style("li.h5 a", // questions
+	css.Style("li.h5 a, td.question a",
 		"color: darkred",
+		"font-style: italic",
 	)
-	css.Style(".question",
-		"text-align: right",
+	css.Style("table.question",
+		"width: 100%",
 		"border-bottom: 1px dotted #727272",
 	)
-	css.Style(".question a", // questions
-		"color: darkred",
+	css.Style("td.question",
+		"text-align: right",
+		"width: 100%",
 	)
+	css.Style("td.question h5",
+		"color: darkred",
+		"padding: 0 0",
+		"margin: 0 0",
+		"font-size: 1em",
+		"font-weight: normal",
+	)
+	css.Style("td.answer",
+		"background-color: #e2e2e2",
+		"border-radius: 5px",
+		"padding: 2px 1em 2px 1em",
+	)
+	css.Style("td.answer a",
+		"color: black",
+	)
+	// end questions
 
 	css.Style(".timestamp",
 		"width: 100%",
