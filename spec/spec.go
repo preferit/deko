@@ -44,10 +44,14 @@ func (me *Specification) SaveAs(filename string) {
 	renameElement(me.CurrentState, "issue", "div")
 	refs := anchorDt(me.References)
 
+	toc.MakeTOC(nav, body, "h2", "h3")
+
 	linkReferences(me.Goals, refs)
 	linkReferences(me.CurrentState, refs)
 
-	toc.MakeTOC(nav, body, "h2", "h3", "h4")
+	toc.GenerateIDs(body, "h4")
+	toc.GenerateAnchors(body, "h4")
+
 	page := NewPage(
 		Html(
 			Head(
