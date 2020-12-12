@@ -52,16 +52,16 @@ func NewCurrentState(n *Hn) *Element {
 	s := Section(
 		n.H1("Current state"),
 
-		n.H2("Consultant tracks working hours"),
+		n.H2("Consultant logs working hours"),
 
-		P(`Preferits consultants use spreadsheet file for gathering
-	    the hours and reporting them to the CEO. The file is prepared
-	    in advance by the CEO each year, with expected number of
-	    working hours for each day. The file contains monthly sheets
-	    and a yearly summary. Consultants register a project per line
-	    and enter number of hours for each day. There are also rows
-	    for vacation, illness and other non project specific tasks
-	    that may need time keeping.`),
+		P(`Preferits consultants use spreadsheet file for logging the
+	    hours and reporting them to the CEO. The file is prepared in
+	    advance by the CEO each year, with expected number of working
+	    hours for each day. The file contains monthly sheets and a
+	    yearly summary. Consultants register a project per line and
+	    enter number of hours for each day. There are also rows for
+	    vacation, illness and other non project specific tasks that
+	    may need time keeping.`),
 
 		n.H3("Issues"),
 		Issues(
@@ -86,6 +86,16 @@ func NewCurrentState(n *Hn) *Element {
 		consultant. If the consultant has overtime left from last year
 		it's added to this years file. The new file is then sent out
 		to the consultant.`),
+
+		n.H3("Issues"),
+		Issues(
+
+			Issue(`It's tedious to update the spreadsheet holidays
+			with the expected working hours. If a mistake is made and
+			later found, it must be manually updated for each
+			spreadsheet file for all consultants.`),
+			//
+		),
 
 		n.H2("Consultant reports working hours to CEO"),
 
