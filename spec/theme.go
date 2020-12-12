@@ -88,5 +88,9 @@ func theme() *CSS {
 	css.Style("ul.issues",
 		"list-style-type: square",
 	)
+
+	css.Style("dd",
+		"margin-bottom: 1em",
+	)
 	return css
 }
