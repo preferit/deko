@@ -64,9 +64,18 @@ func NewCurrentState(n *Hn) *Element {
 	    that may need time keeping.`),
 
 		n.H3("Issues"),
+		Issues(
 
-		Issue(`The monthly sheet is quite large and it's easy to
-		update the wrong cell for any given date.`),
+			Issue(`The monthly sheet is quite large and it's easy to
+		    update the wrong cell for any given date.`),
+
+			Issue(`Even if consultant has worked the expected number
+		    of hours, the sheet must always be updated.`),
+
+			Issue(`Almost impossible to keep track of time using
+			mobile device.`),
+			//
+		),
 
 		n.H2("CEO prepares spreadsheet file for consultant"),
 

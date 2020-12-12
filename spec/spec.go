@@ -142,6 +142,14 @@ func Question(v string) *Element {
 	return NewElement("question", Class("question"), v)
 }
 
+func Issues(v ...interface{}) *Element {
+	ul := Ul(Class("issues"))
+	for _, el := range v {
+		ul.With(Li(el))
+	}
+	return ul
+}
+
 func Issue(v string) *Element {
 	return NewElement("issue", Class("issue"), v)
 }

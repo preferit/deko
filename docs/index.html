@@ -19,6 +19,7 @@ margin-top: 0;
 nav ul {
 list-style-type: none;
 padding-left: 0;
+margin-bottom: 3.236em;
 }
 section {
 margin-bottom: 3.236em;
@@ -48,10 +49,13 @@ text-align: right;
 .warn {
 color: red;
 }
+ul.issues {
+list-style-type: square;
+}
 </style>
 </head>
 <body>
-<div class="timestamp">Last update: 2020-12-12 08:51</div>
+<div class="timestamp">Last update: 2020-12-12 09:04</div>
 <h1>Deko project specification</h1>
 <em class="goal main-goal">Simplify <a href="#timekeeping">time keeping</a> between consultants and customers.</em><nav><ul>
 <li class="h2"><a href="#goals">Goals</a></li>
@@ -101,8 +105,17 @@ color: red;
 	    for vacation, illness and other non project specific tasks
 	    that may need <a href="#timekeeping">time keeping</a>.</p>
 <h4 id="issues"><a href="#issues">Issues</a></h4>
-<div class="issue">The monthly sheet is quite large and it's easy to
-		update the wrong cell for any given date.</div>
+<ul class="issues">
+<li><div class="issue">The monthly sheet is quite large and it's easy to
+		    update the wrong cell for any given date.</div>
+</li>
+<li><div class="issue">Even if consultant has worked the expected number
+		    of hours, the sheet must always be updated.</div>
+</li>
+<li><div class="issue">Almost impossible to keep track of time using
+			mobile device.</div>
+</li>
+</ul>
 <h3 id="ceopreparesspreadsheetfileforconsultant"><a href="#ceopreparesspreadsheetfileforconsultant">CEO prepares spreadsheet file for consultant</a></h3>
 <p>Each year the CEO creates a new spreadsheet file based on a
 		previous one. He goes through each month and verifies that the

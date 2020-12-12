@@ -22,6 +22,7 @@ func theme() *CSS {
 	css.Style("nav ul",
 		"list-style-type: none",
 		"padding-left: 0",
+		"margin-bottom: 3.236em",
 	)
 	css.Style("section",
 		"margin-bottom: 3.236em",
@@ -52,5 +53,8 @@ func theme() *CSS {
 		"color: red",
 	)
 
+	css.Style("ul.issues",
+		"list-style-type: square",
+	)
 	return css
 }
