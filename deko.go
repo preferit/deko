@@ -90,10 +90,10 @@ func NewCurrentState(n *Hn) *Element {
 		n.H3("Issues"),
 		Issues(
 
-			Issue(`It's tedious to update the spreadsheet holidays
-			with the expected working hours. If a mistake is made and
-			later found, it must be manually updated for each
-			spreadsheet file for all consultants.`),
+			Issue(`It's tedious to update the holidays with the
+			expected working hours. If a mistake is made and later
+			found, it must be manually updated for each distributed
+			spreadsheet file.`),
 			//
 		),
 
@@ -153,6 +153,9 @@ func NewReferences(n *Hn) *Element {
 			Dt("Financial system"),
 			Dd(`Fortnox is the financial system used to produce
 			invoices.`),
+
+			Dt("Spreadsheet file"),
+			Dd("Excel file which works with libreoffice"),
 
 			Dt("Time keeping"),
 			Dd(`The process of logging, reporting and transforming

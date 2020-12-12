@@ -21,7 +21,6 @@ type Specification struct {
 
 func (me *Specification) SaveAs(filename string) {
 	nav := Nav()
-	openQuestions := Wrap()
 	mainGoal := FindFirstChild(me.Goals, "maingoal")
 	body := Body(
 		Div(Class("timestamp"), "Last update: ", time.Now().Format("2006-01-02 15:04")),
@@ -31,15 +30,11 @@ func (me *Specification) SaveAs(filename string) {
 		nav,
 		Article(
 			me.Goals,
-			openQuestions,
 			me.CurrentState,
 		),
 		me.Changelog,
 		me.References,
 	)
-
-	// add open questions
-	groupQuestions(openQuestions, body)
 
 	// fix all non html elements
 	renameElement(body, "question", "h4")
