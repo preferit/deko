@@ -6,17 +6,27 @@ import (
 	"strings"
 	"time"
 
+	"github.com/gregoryv/fox"
 	"github.com/gregoryv/web"
 	. "github.com/gregoryv/web"
 	"github.com/gregoryv/web/toc"
 )
 
 type Specification struct {
+	fox.Logger
+
 	name         string
 	goals        *Element
 	currentState *Element
 	changelog    *Element
 	references   *Element
+}
+
+// Log
+func (me *Specification) Log(v ...interface{}) {
+	if me.Logger != nil {
+		me.Logger.Log(v...)
+	}
 }
 
 func (me *Specification) SaveAs(filename string) {
@@ -39,18 +49,7 @@ func (me *Specification) SaveAs(filename string) {
 	)
 
 	// add open questions
-	questions := findQuestions(body)
-	if len(questions) > 0 {
-		ul := Ul()
-		for _, q := range questions {
-			qid := genID(q.Text())
-			q.With(Id(qid))
-			ul.With(Li(
-				A(Href("#"+qid), Class("question"), q.Text())),
-			)
-		}
-		openQuestions.With(H2("Open questions"), ul)
-	}
+	groupQuestions(openQuestions, body)
 
 	// fix all non html elements
 	renameElement(body, "question", "h4")
@@ -74,6 +73,21 @@ func (me *Specification) SaveAs(filename string) {
 	page.SaveAs(filename)
 }
 
+func groupQuestions(dst, from *Element) {
+	questions := findQuestions(from)
+	if len(questions) > 0 {
+		ul := Ul()
+		for _, q := range questions {
+			qid := genID(q.Text())
+			q.With(Id(qid))
+			ul.With(Li(
+				A(Href("#"+qid), Class("question"), q.Text())),
+			)
+		}
+		dst.With(H2("Open questions"), ul)
+	}
+}
+
 func linkReferences(dst *Element, refs map[string]string) {
 	web.WalkElements(dst, func(e *web.Element) {
 		for i, c := range e.Children {
@@ -93,7 +107,6 @@ func linkReferences(dst *Element, refs map[string]string) {
 					}
 				}
 			}
-
 		}
 	})
 }
@@ -150,17 +163,61 @@ func Question(v string) *Element {
 	return NewElement("question", Class("question"), v)
 }
 
-func Requirements(v ...interface{}) *Element {
+// CheckRequirements
+func (me *Specification) CheckRequirements() error {
+	missingId := make([]string, 0)
+	var found int
+	web.WalkElements(me.currentState, func(e *web.Element) {
+		if e.Name == REQ {
+			found++
+			if !e.HasAttr("id") {
+				txt := e.Text()
+				txt = strings.ReplaceAll(txt, "\t", "")
+				txt = strings.ReplaceAll(txt, "\n", " ")
+				missingId = append(missingId, txt)
+			}
+		}
+	})
+	if len(missingId) > 0 {
+		var wb strings.Builder
+		for _, r := range missingId {
+			wb.WriteString(RID())
+			wb.WriteString(" - ")
+			wb.WriteString(r)
+			wb.WriteString("\n")
+		}
+		return fmt.Errorf("Requirements missing ids\n%v", wb.String())
+	}
+	if found == 0 {
+		return fmt.Errorf("No requirements specified")
+	}
+	return nil
+}
+
+func Requirements(v ...*Requirement) *Element {
 	ul := Ul()
 	for _, req := range v {
-		ul.With(Li(req))
+		el := NewElement(REQ, Class("requirement"), req.txt, Attr("title", req.id))
+		if req.id != "" {
+			el.With(Id(req.id))
+		} else {
+			el.With(Span(Class("warn"), " (Missing ID)"))
+		}
+		ul.With(Li(el))
 	}
 	return ul
 }
 
-func Requirement(v ...interface{}) *Element {
-	return NewElement("requirement", Class("requirement")).With(v...)
+func NewRequirement(v string) *Requirement {
+	return &Requirement{txt: v}
 }
+
+type Requirement struct {
+	id  string
+	txt string
+}
+
+const REQ = "requirement"
 
 var idChars = regexp.MustCompile(`\W`)
 

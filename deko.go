@@ -5,13 +5,13 @@ import . "github.com/gregoryv/web"
 func NewDeko() *Specification {
 	n := NewHn(2)
 
-	s := &Specification{}
+	s := Specification{}
 	s.name = "Deko project specification"
 	s.goals = NewGoals(n)
 	s.currentState = NewCurrentState(n)
 	s.changelog = NewChangelog(n)
 	s.references = NewReferences(n)
-	return s
+	return &s
 }
 
 func NewGoals(n *Hn) *Element {
@@ -45,7 +45,7 @@ func NewGoals(n *Hn) *Element {
 }
 
 func NewCurrentState(n *Hn) *Element {
-	return Section(
+	s := Section(
 		n.H1("Current state"),
 
 		n.H2("Consultant track working hours"),
@@ -66,8 +66,8 @@ func NewCurrentState(n *Hn) *Element {
 		calendar is correct and changes the expected working hours for
 		holidays. Once this is done the file is duplicated for each
 		consultant. If the consultant has overtime left from last year
-		it added to this years file. The new file is then sent out to
-		the consultant.`),
+		it's added to this years file. The new file is then sent out
+		to the consultant.`),
 
 		n.H2("Consultant reports working hours to CEO"),
 
@@ -87,15 +87,33 @@ func NewCurrentState(n *Hn) *Element {
 		),
 
 		n.H3("Requirements"),
-		Requirements(R1),
+		Requirements(
+			rami73,
+			ryre95,
+		),
 
 		//
 	)
+	return s
 }
 
+// Keep requirements unique and referencable
 var (
-	R1 = Requirement(`CEO must easily receive/find the sum eligible for
-		invoicing.`)
+	rami73 = &Requirement{
+		id: "rami73",
+
+		txt: `CEO must easily receive/find the monthly sum eligible
+		for invoicing.`,
+		//
+	}
+
+	ryre95 = &Requirement{
+		id: "ryre95",
+
+		txt: `Monthly sum should include hours and minutes`,
+		//
+	}
+	//
 )
 
 func NewReferences(n *Hn) *Element {

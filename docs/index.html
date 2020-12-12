@@ -45,10 +45,13 @@ color: darkred;
 width: 100%;
 text-align: right;
 }
+.warn {
+color: red;
+}
 </style>
 </head>
 <body>
-<div class="timestamp">Last update: 2020-12-11 17:58</div>
+<div class="timestamp">Last update: 2020-12-12 08:15</div>
 <h1>Deko project specification</h1>
 <em class="goal main-goal">Simplify <a href="#timekeeping">time keeping</a> between consultants and customers.</em><nav><ul>
 <li class="h2"><a href="#goals">Goals</a></li>
@@ -102,8 +105,8 @@ text-align: right;
 		calendar is correct and changes the expected working hours for
 		holidays. Once this is done the file is duplicated for each
 		consultant. If the consultant has overtime left from last year
-		it added to this years file. The new file is then sent out to
-		the consultant.</p>
+		it's added to this years file. The new file is then sent out
+		to the consultant.</p>
 <h3 id="consultantreportsworkinghourstoceo"><a href="#consultantreportsworkinghourstoceo">Consultant reports working hours to CEO</a></h3>
 <p>Consultant e-mails the spreadsheet file to the CEO</p>
 <h3 id="consultantreportsworkinghourstocontractor"><a href="#consultantreportsworkinghourstocontractor">Consultant reports working hours to contractor</a></h3>
@@ -116,8 +119,10 @@ text-align: right;
 		entered into the <a href="#financialsystem">financial system</a>.</p>
 <h4 id="requirements"><a href="#requirements">Requirements</a></h4>
 <ul>
-<li><div class="requirement">CEO must easily receive/find the sum eligible for
-		invoicing.</div>
+<li><div class="requirement" title="rami73" id="rami73">CEO must easily receive/find the monthly sum eligible
+		for invoicing.</div>
+</li>
+<li><div class="requirement" title="ryre95" id="ryre95">Monthly sum should include hours and minutes</div>
 </li>
 </ul>
 </section>

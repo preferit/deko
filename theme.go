@@ -48,5 +48,9 @@ func theme() *CSS {
 		"width: 100%",
 		"text-align: right",
 	)
+	css.Style(".warn",
+		"color: red",
+	)
+
 	return css
 }
