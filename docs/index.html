@@ -55,7 +55,7 @@ list-style-type: square;
 </style>
 </head>
 <body>
-<div class="timestamp">Last update: 2020-12-12 09:23</div>
+<div class="timestamp">Last update: 2020-12-12 09:33</div>
 <h1>Deko project specification</h1>
 <em class="goal main-goal">Simplify <a href="#timekeeping">time keeping</a> between consultants and customers.</em><nav><ul>
 <li class="h2"><a href="#goals">Goals</a></li>
@@ -66,7 +66,9 @@ list-style-type: square;
 <li class="h3"><a href="#ceopreparesahrefspreadsheetfilespreadsheetfileaforconsultant">CEO prepares <a href="#spreadsheetfile">spreadsheet file</a> for consultant</a></li>
 <li class="h4"><a href="#issues">Issues</a></li>
 <li class="h3"><a href="#consultantreportsworkinghourstoceo">Consultant reports working hours to CEO</a></li>
+<li class="h4"><a href="#issues">Issues</a></li>
 <li class="h3"><a href="#consultantreportsworkinghourstocontractor">Consultant reports working hours to contractor</a></li>
+<li class="h4"><a href="#issues">Issues</a></li>
 <li class="h3"><a href="#ceocreatesinvoiceforcustomer">CEO creates invoice for customer</a></li>
 <li class="h4"><a href="#requirements">Requirements</a></li>
 <li class="h2"><a href="#changelog">Changelog</a></li>
@@ -135,9 +137,25 @@ list-style-type: square;
 </ul>
 <h3 id="consultantreportsworkinghourstoceo"><a href="#consultantreportsworkinghourstoceo">Consultant reports working hours to CEO</a></h3>
 <p>Consultant e-mails the <a href="#spreadsheetfile">spreadsheet file</a> to the CEO</p>
+<h4 id="issues"><a href="#issues">Issues</a></h4>
+<ul class="issues">
+<li><div class="issue">Cannot report working hours unless access to
+			<a href="#spreadsheetfile">spreadsheet file</a>.</div>
+</li>
+<li><div class="issue">Easy to send the wrong file.</div>
+</li>
+</ul>
 <h3 id="consultantreportsworkinghourstocontractor"><a href="#consultantreportsworkinghourstocontractor">Consultant reports working hours to contractor</a></h3>
 <p>Consultant opens the <a href="#spreadsheetfile">spreadsheet file</a> to find the summary for a
 		specific project and e-mails that summary to the contractor.</p>
+<h4 id="issues"><a href="#issues">Issues</a></h4>
+<ul class="issues">
+<li><div class="issue">Cannot report working hours unless access to
+			<a href="#spreadsheetfile">spreadsheet file</a>.</div>
+</li>
+<li><div class="issue">Hard to tell if all expected days are logged.</div>
+</li>
+</ul>
 <h3 id="ceocreatesinvoiceforcustomer"><a href="#ceocreatesinvoiceforcustomer">CEO creates invoice for customer</a></h3>
 <p>CEO opens spreadsheet file for consultant that is
 		contracted and finds the summary for the specific project. The

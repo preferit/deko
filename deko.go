@@ -77,6 +77,8 @@ func NewCurrentState(n *Hn) *Element {
 			//
 		),
 
+		// ----------------------------------------
+
 		n.H2("CEO prepares spreadsheet file for consultant"),
 
 		P(`Each year the CEO creates a new spreadsheet file based on a
@@ -97,14 +99,41 @@ func NewCurrentState(n *Hn) *Element {
 			//
 		),
 
+		// ----------------------------------------
+
 		n.H2("Consultant reports working hours to CEO"),
 
 		P(`Consultant e-mails the spreadsheet file to the CEO`),
+
+		n.H3("Issues"),
+		Issues(
+
+			Issue(`Cannot report working hours unless access to
+			spreadsheet file.`),
+
+			Issue(`Easy to send the wrong file.`),
+
+			//
+		),
+
+		// ----------------------------------------
 
 		n.H2("Consultant reports working hours to contractor"),
 
 		P(`Consultant opens the spreadsheet file to find the summary for a
 		specific project and e-mails that summary to the contractor.`),
+
+		n.H3("Issues"),
+		Issues(
+
+			Issue(`Cannot report working hours unless access to
+			spreadsheet file.`),
+
+			Issue(`Hard to tell if all expected days are logged.`),
+			//
+		),
+
+		// ----------------------------------------
 
 		n.H2("CEO creates invoice for customer"),
 
