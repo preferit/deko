@@ -1,16 +1,20 @@
 package deko
 
-import . "github.com/gregoryv/web"
+import (
+	. "github.com/gregoryv/web"
+	"github.com/preferit/deko/spec"
+	. "github.com/preferit/deko/spec"
+)
 
 func NewDeko() *Specification {
 	n := NewHn(2)
 
-	s := Specification{}
-	s.name = "Deko project specification"
-	s.goals = NewGoals(n)
-	s.currentState = NewCurrentState(n)
-	s.changelog = NewChangelog(n)
-	s.references = NewReferences(n)
+	s := spec.Specification{}
+	s.Name = "Deko project specification"
+	s.Goals = NewGoals(n)
+	s.CurrentState = NewCurrentState(n)
+	s.Changelog = NewChangelog(n)
+	s.References = NewReferences(n)
 	return &s
 }
 
@@ -48,7 +52,7 @@ func NewCurrentState(n *Hn) *Element {
 	s := Section(
 		n.H1("Current state"),
 
-		n.H2("Consultant track working hours"),
+		n.H2("Consultant tracks working hours"),
 
 		P(`Preferits consultants use spreadsheet file for gathering
 	    the hours and reporting them to the CEO. The file is prepared
@@ -58,6 +62,11 @@ func NewCurrentState(n *Hn) *Element {
 	    and enter number of hours for each day. There are also rows
 	    for vacation, illness and other non project specific tasks
 	    that may need time keeping.`),
+
+		n.H3("Issues"),
+
+		Issue(`The monthly sheet is quite large and it's easy to
+		update the wrong cell for any given date.`),
 
 		n.H2("CEO prepares spreadsheet file for consultant"),
 
@@ -100,17 +109,17 @@ func NewCurrentState(n *Hn) *Element {
 // Keep requirements unique and referencable
 var (
 	rami73 = &Requirement{
-		id: "rami73",
+		ID: "rami73",
 
-		txt: `CEO must easily receive/find the monthly sum eligible
+		Txt: `CEO must easily receive/find the monthly sum eligible
 		for invoicing.`,
 		//
 	}
 
 	ryre95 = &Requirement{
-		id: "ryre95",
+		ID: "ryre95",
 
-		txt: `Monthly sum should include hours and minutes`,
+		Txt: `Monthly sum should include hours and minutes`,
 		//
 	}
 	//

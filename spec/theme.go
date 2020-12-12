@@ -1,4 +1,4 @@
-package deko
+package spec
 
 import . "github.com/gregoryv/web"
 
@@ -38,7 +38,7 @@ func theme() *CSS {
 	css.Style("a:link:hover",
 		"text-decoration: underline",
 	)
-	css.Style("h1 a, h2 a, h3 a",
+	css.Style("h1 a, h2 a, h3 a, h4 a",
 		"color: black",
 	)
 	css.Style("h4.question",

@@ -35,7 +35,7 @@ text-decoration: none;
 a:link:hover {
 text-decoration: underline;
 }
-h1 a, h2 a, h3 a {
+h1 a, h2 a, h3 a, h4 a {
 color: black;
 }
 h4.question {
@@ -51,13 +51,14 @@ color: red;
 </style>
 </head>
 <body>
-<div class="timestamp">Last update: 2020-12-12 08:15</div>
+<div class="timestamp">Last update: 2020-12-12 08:51</div>
 <h1>Deko project specification</h1>
 <em class="goal main-goal">Simplify <a href="#timekeeping">time keeping</a> between consultants and customers.</em><nav><ul>
 <li class="h2"><a href="#goals">Goals</a></li>
 <li class="h3"><a href="#background">Background</a></li>
 <li class="h2"><a href="#currentstate">Current state</a></li>
-<li class="h3"><a href="#consultanttrackworkinghours">Consultant track working hours</a></li>
+<li class="h3"><a href="#consultanttracksworkinghours">Consultant tracks working hours</a></li>
+<li class="h4"><a href="#issues">Issues</a></li>
 <li class="h3"><a href="#ceopreparesspreadsheetfileforconsultant">CEO prepares spreadsheet file for consultant</a></li>
 <li class="h3"><a href="#consultantreportsworkinghourstoceo">Consultant reports working hours to CEO</a></li>
 <li class="h3"><a href="#consultantreportsworkinghourstocontractor">Consultant reports working hours to contractor</a></li>
@@ -90,7 +91,7 @@ color: red;
 </section>
 <section>
 <h2 id="currentstate"><a href="#currentstate">Current state</a></h2>
-<h3 id="consultanttrackworkinghours"><a href="#consultanttrackworkinghours">Consultant track working hours</a></h3>
+<h3 id="consultanttracksworkinghours"><a href="#consultanttracksworkinghours">Consultant tracks working hours</a></h3>
 <p>Preferits consultants use spreadsheet file for gathering
 	    the hours and reporting them to the CEO. The file is prepared
 	    in advance by the CEO each year, with expected number of
@@ -99,6 +100,9 @@ color: red;
 	    and enter number of hours for each day. There are also rows
 	    for vacation, illness and other non project specific tasks
 	    that may need <a href="#timekeeping">time keeping</a>.</p>
+<h4 id="issues"><a href="#issues">Issues</a></h4>
+<div class="issue">The monthly sheet is quite large and it's easy to
+		update the wrong cell for any given date.</div>
 <h3 id="ceopreparesspreadsheetfileforconsultant"><a href="#ceopreparesspreadsheetfileforconsultant">CEO prepares spreadsheet file for consultant</a></h3>
 <p>Each year the CEO creates a new spreadsheet file based on a
 		previous one. He goes through each month and verifies that the

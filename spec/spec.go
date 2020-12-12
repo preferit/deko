@@ -1,4 +1,4 @@
-package deko
+package spec
 
 import (
 	"fmt"
@@ -6,46 +6,36 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gregoryv/fox"
 	"github.com/gregoryv/web"
 	. "github.com/gregoryv/web"
 	"github.com/gregoryv/web/toc"
 )
 
 type Specification struct {
-	fox.Logger
-
-	name         string
-	goals        *Element
-	currentState *Element
-	changelog    *Element
-	references   *Element
-}
-
-// Log
-func (me *Specification) Log(v ...interface{}) {
-	if me.Logger != nil {
-		me.Logger.Log(v...)
-	}
+	Name         string
+	Goals        *Element
+	CurrentState *Element
+	Changelog    *Element
+	References   *Element
 }
 
 func (me *Specification) SaveAs(filename string) {
 	nav := Nav()
 	openQuestions := Wrap()
-	mainGoal := FindFirstChild(me.goals, "maingoal")
+	mainGoal := FindFirstChild(me.Goals, "maingoal")
 	body := Body(
 		Div(Class("timestamp"), "Last update: ", time.Now().Format("2006-01-02 15:04")),
 
-		H1(me.name),
+		H1(me.Name),
 		mainGoal,
 		nav,
 		Article(
-			me.goals,
+			me.Goals,
 			openQuestions,
-			me.currentState,
+			me.CurrentState,
 		),
-		me.changelog,
-		me.references,
+		me.Changelog,
+		me.References,
 	)
 
 	// add open questions
@@ -54,12 +44,13 @@ func (me *Specification) SaveAs(filename string) {
 	// fix all non html elements
 	renameElement(body, "question", "h4")
 	renameElement(body, "requirement", "div")
-	renameElement(me.goals, "maingoal", "em")
-	renameElement(me.goals, "goal", "wrapper")
-	refs := anchorDt(me.references)
+	renameElement(me.Goals, "maingoal", "em")
+	renameElement(me.Goals, "goal", "wrapper")
+	renameElement(me.CurrentState, "issue", "div")
+	refs := anchorDt(me.References)
 
-	linkReferences(me.goals, refs)
-	linkReferences(me.currentState, refs)
+	linkReferences(me.Goals, refs)
+	linkReferences(me.CurrentState, refs)
 
 	toc.MakeTOC(nav, body, "h2", "h3", "h4")
 	page := NewPage(
@@ -147,6 +138,14 @@ func findQuestions(root *Element) []*Element {
 	return res
 }
 
+func Question(v string) *Element {
+	return NewElement("question", Class("question"), v)
+}
+
+func Issue(v string) *Element {
+	return NewElement("issue", Class("issue"), v)
+}
+
 func renameElement(root *Element, from, to string) {
 	web.WalkElements(root, func(e *web.Element) {
 		if e.Name == from {
@@ -159,15 +158,11 @@ func MainGoal(v string) *Element {
 	return NewElement("maingoal", Class("goal main-goal"), v)
 }
 
-func Question(v string) *Element {
-	return NewElement("question", Class("question"), v)
-}
-
 // CheckRequirements
 func (me *Specification) CheckRequirements() error {
 	missingId := make([]string, 0)
 	var found int
-	web.WalkElements(me.currentState, func(e *web.Element) {
+	web.WalkElements(me.CurrentState, func(e *web.Element) {
 		if e.Name == REQ {
 			found++
 			if !e.HasAttr("id") {
@@ -197,9 +192,10 @@ func (me *Specification) CheckRequirements() error {
 func Requirements(v ...*Requirement) *Element {
 	ul := Ul()
 	for _, req := range v {
-		el := NewElement(REQ, Class("requirement"), req.txt, Attr("title", req.id))
-		if req.id != "" {
-			el.With(Id(req.id))
+		id := req.ID
+		el := NewElement(REQ, Class("requirement"), req.Txt, Attr("title", id))
+		if id != "" {
+			el.With(Id(id))
 		} else {
 			el.With(Span(Class("warn"), " (Missing ID)"))
 		}
@@ -209,12 +205,12 @@ func Requirements(v ...*Requirement) *Element {
 }
 
 func NewRequirement(v string) *Requirement {
-	return &Requirement{txt: v}
+	return &Requirement{Txt: v}
 }
 
 type Requirement struct {
-	id  string
-	txt string
+	ID  string
+	Txt string
 }
 
 const REQ = "requirement"

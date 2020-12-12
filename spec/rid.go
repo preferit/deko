@@ -1,4 +1,4 @@
-package deko
+package spec
 
 import (
 	"math/rand"
