@@ -1,5 +1,7 @@
-This is an exercise in how to work with software specifications using
+This is an exercise in how to work with [software specifications](https://preferit.github.io/deko/) using
 the go programing language.
+
+The specification is published to https://preferit.github.io/deko/ 
 
 ## Purpose
 
