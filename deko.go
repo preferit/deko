@@ -9,13 +9,14 @@ import (
 func NewDeko() *Specification {
 	n := NewHn(2)
 
-	s := spec.Specification{}
-	s.Name = "Deko project specification"
-	s.LastUpdate = LastUpdate // from changelog.go
-	s.Goals = NewGoals(n)
-	s.CurrentState = NewCurrentState(n)
-	s.Changelog = NewChangelog(n)
-	s.References = NewReferences(n)
+	s := spec.Specification{
+		Name:         "Deko project specification",
+		LastUpdate:   LastUpdate, // from changelog.go
+		Goals:        NewGoals(n),
+		CurrentState: NewCurrentState(n),
+		Changelog:    NewChangelog(n),
+		References:   NewReferences(n),
+	}
 	return &s
 }
 
@@ -26,7 +27,6 @@ func NewGoals(n *Hn) *Element {
 		n.H1("Goals"),
 
 		P(`The main goal of this project is to "`, main, `".`),
-		//
 
 		n.H2("Background"),
 		P(`Working by the hour involves keeping track of
