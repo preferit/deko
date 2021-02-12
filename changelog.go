@@ -2,6 +2,8 @@ package deko
 
 import . "github.com/gregoryv/web"
 
+const LastUpdate = "2020-12-12 10:32" //time.Now().Format("2006-01-02 15:04"))
+
 func NewChangelog(n *Hn) *Element {
 	return Article(
 		n.H1("Changelog"),

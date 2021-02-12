@@ -12,21 +12,18 @@ import (
 
 type Specification struct {
 	Name         string
+	LastUpdate   string
 	Goals        *Element
 	CurrentState *Element
 	Changelog    *Element
 	References   *Element
 }
 
-const LastUpdate = "2020-12-12 10:32"
-
-//time.Now().Format("2006-01-02 15:04"))
-
 func (me *Specification) SaveAs(filename string) {
 	nav := Nav()
 	mainGoal := FindFirstChild(me.Goals, "maingoal")
 	body := Body(
-		Div(Class("timestamp"), "Last update: ", LastUpdate),
+		Div(Class("timestamp"), "Last update: ", me.LastUpdate),
 
 		H1(me.Name),
 		mainGoal,

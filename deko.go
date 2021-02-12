@@ -11,6 +11,7 @@ func NewDeko() *Specification {
 
 	s := spec.Specification{}
 	s.Name = "Deko project specification"
+	s.LastUpdate = LastUpdate // from changelog.go
 	s.Goals = NewGoals(n)
 	s.CurrentState = NewCurrentState(n)
 	s.Changelog = NewChangelog(n)
