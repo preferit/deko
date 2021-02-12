@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"regexp"
 	"strings"
-	"time"
 
 	"github.com/gregoryv/web"
 	. "github.com/gregoryv/web"
@@ -19,11 +18,15 @@ type Specification struct {
 	References   *Element
 }
 
+const LastUpdate = "2020-12-12 10:32"
+
+//time.Now().Format("2006-01-02 15:04"))
+
 func (me *Specification) SaveAs(filename string) {
 	nav := Nav()
 	mainGoal := FindFirstChild(me.Goals, "maingoal")
 	body := Body(
-		Div(Class("timestamp"), "Last update: ", time.Now().Format("2006-01-02 15:04")),
+		Div(Class("timestamp"), "Last update: ", LastUpdate),
 
 		H1(me.Name),
 		mainGoal,
