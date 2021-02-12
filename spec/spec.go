@@ -42,9 +42,12 @@ func (me *Specification) SaveAs(filename string) {
 	renameElement(me.Goals, "maingoal", "em")
 	renameElement(me.Goals, "goal", "wrapper")
 	renameElement(me.CurrentState, "issue", "div")
-	refs := anchorDt(me.References)
-
 	toc.MakeTOC(nav, body, "h2", "h3", "h5")
+
+	refs := anchorDt(me.References)
+	for k, id := range refs {
+		refs[k] = "#" + id
+	}
 
 	linkReferences(me.Goals, refs)
 	linkReferences(me.CurrentState, refs)
@@ -78,6 +81,8 @@ func groupQuestions(dst, from *Element) {
 	}
 }
 
+// linkReferences replaces key words found in the dst and it's
+// children with links defined in the map. The map should be key -> href
 func linkReferences(dst *Element, refs map[string]string) {
 	web.WalkElements(dst, func(e *web.Element) {
 		for i, c := range e.Children {
@@ -90,7 +95,7 @@ func linkReferences(dst *Element, refs map[string]string) {
 					j := strings.Index(lc, txt)
 					if j > -1 {
 						k := j + len(txt)
-						e.Children[i] = fmt.Sprintf(`%s<a href="#%s">%s</a>%s`,
+						e.Children[i] = fmt.Sprintf(`%s<a href="%s">%s</a>%s`,
 							c[:j], refId, c[j:k], c[k:],
 						)
 						break replace

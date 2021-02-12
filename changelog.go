@@ -15,14 +15,14 @@ func NewChangelog(n *Hn) *Element {
 			),
 		),
 
-		Version(n, "0.1.0-unreleased", "",
+		newSection(n, "0.1.0-unreleased", "",
 			"Elicit requirements of the current state",
 			"Add initial background and goal of project",
 		),
 	)
 }
 
-func Version(n *Hn, version, date string, changes ...interface{}) *Element {
+func newSection(n *Hn, version, date string, changes ...interface{}) *Element {
 	ul := Ul()
 	for _, c := range changes {
 		ul.With(Li(c))
