@@ -86,14 +86,13 @@ margin-bottom: 1em;
 </style>
 </head>
 <body>
-<div class="timestamp">Last update: 2020-12-12 10:32</div>
+<div class="timestamp">Last update: 2021-02-12 07:55</div>
 <h1>Deko project specification</h1>
 <em class="goal main-goal">Simplify <a href="#timekeeping">time keeping</a> between consultants and customers.</em><nav><ul>
 <li class="h2"><a href="#goals">Goals</a></li>
 <li class="h3"><a href="#background">Background</a></li>
 <li class="h2"><a href="#currentstate">Current state</a></li>
 <li class="h3"><a href="#consultantlogsworkinghours">Consultant logs working hours</a></li>
-<li class="h5"><a href="#whatfeaturesdoescurrentlogprocessprovide">What features does current log process provide?</a></li>
 <li class="h3"><a href="#ceopreparesspreadsheetfileforconsultant">CEO prepares spreadsheet file for consultant</a></li>
 <li class="h3"><a href="#consultantreportsworkinghourstoceo">Consultant reports working hours to CEO</a></li>
 <li class="h3"><a href="#consultantreportsworkinghourstocontractor">Consultant reports working hours to contractor</a></li>
@@ -137,10 +136,16 @@ margin-bottom: 1em;
 	    enter number of hours for each day. There are also rows for
 	    vacation, illness and other non project specific tasks that
 	    may need <a href="#timekeeping">time keeping</a>.</p>
-<table class="question">
-<tr><td class="question"><h5 id="whatfeaturesdoescurrentlogprocessprovide"><a href="#whatfeaturesdoescurrentlogprocessprovide">What features does current log process provide?</a></h5>
-</td><td> </td><td class="answer"><a href="mailto:gregory@preferit.se?subject=What features does current log process provide?">Answer</a></td></tr>
-</table>
+<h4 id="currentprocessprovidedfeatures"><a href="#currentprocessprovidedfeatures">Current process provided features</a></h4>
+<ul class="features">
+<li><Feature class="Feature">As a consultant I have the freedom of When to
+			track time, during one month.</Feature></li>
+<li><Feature class="Feature">The accumulated monthly and yearly values,
+			provide a way to check the validity of the input against
+			expected working hours.</Feature></li>
+<li><Feature class="Feature">Working hours valued differently, e.g. overtime,
+			are automatically calculated in the <a href="#spreadsheetfile">spreadsheet file</a>.</Feature></li>
+</ul>
 <h4 id="issues"><a href="#issues">Issues</a></h4>
 <ul class="issues">
 <li><div class="issue">The monthly sheet is quite large and it's easy to
@@ -212,6 +217,7 @@ margin-bottom: 1em;
 <section>
 <h3 id="010unreleased"><a href="#010unreleased">0.1.0-unreleased</a></h3>
 <ul>
+<li>Answered: What features does current log process provide?</li>
 <li>Elicit requirements of the current state</li>
 <li>Add initial background and goal of project</li>
 </ul>

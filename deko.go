@@ -68,7 +68,20 @@ func NewCurrentState(n *Hn) *Element {
 	    vacation, illness and other non project specific tasks that
 	    may need time keeping.`),
 
-		Question("What features does current log process provide?"),
+		n.H3("Current process provided features"),
+		Features(
+
+			Feature(`As a consultant I have the freedom of When to
+			track time, during one month.`),
+
+			Feature(`The accumulated monthly and yearly values,
+			provide a way to check the validity of the input against
+			expected working hours.`),
+
+			Feature(`Working hours valued differently, e.g. overtime,
+			are automatically calculated in the spreadsheet file.`),
+			//
+		),
 
 		n.H3("Issues"),
 		Issues(

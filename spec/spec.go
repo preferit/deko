@@ -138,6 +138,18 @@ func Question(v string) *Element {
 	)
 }
 
+func Features(v ...interface{}) *Element {
+	ul := Ul(Class("features"))
+	for _, el := range v {
+		ul.With(Li(el))
+	}
+	return ul
+}
+
+func Feature(v string) *Element {
+	return NewElement("Feature", Class("Feature"), v)
+}
+
 func Issues(v ...interface{}) *Element {
 	ul := Ul(Class("issues"))
 	for _, el := range v {
