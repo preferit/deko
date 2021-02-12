@@ -49,8 +49,8 @@ func (me *Specification) SaveAs(filename string) {
 		refs[k] = "#" + id
 	}
 
-	linkReferences(me.Goals, refs)
-	linkReferences(me.CurrentState, refs)
+	LinkAll(me.Goals, refs)
+	LinkAll(me.CurrentState, refs)
 
 	toc.GenerateIDs(body, "h4")
 	toc.GenerateAnchors(body, "h4")
@@ -79,31 +79,6 @@ func groupQuestions(dst, from *Element) {
 		}
 		dst.With(H2("Open questions"), ul)
 	}
-}
-
-// linkReferences replaces key words found in the dst and it's
-// children with links defined in the map. The map should be key -> href
-func linkReferences(dst *Element, refs map[string]string) {
-	web.WalkElements(dst, func(e *web.Element) {
-		for i, c := range e.Children {
-			switch c := c.(type) {
-			case string:
-				lc := strings.ToLower(c)
-
-			replace:
-				for txt, refId := range refs {
-					j := strings.Index(lc, txt)
-					if j > -1 {
-						k := j + len(txt)
-						e.Children[i] = fmt.Sprintf(`%s<a href="%s">%s</a>%s`,
-							c[:j], refId, c[j:k], c[k:],
-						)
-						break replace
-					}
-				}
-			}
-		}
-	})
 }
 
 // anchorDt creates ids for all dt elements and returns a map of map[txt]id
