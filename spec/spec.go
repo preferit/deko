@@ -32,8 +32,8 @@ func (me *Specification) SaveAs(filename string) {
 			me.Goals,
 			me.CurrentState,
 		),
-		me.Changelog,
 		me.References,
+		me.Changelog,
 	)
 
 	// fix all non html elements
@@ -45,10 +45,6 @@ func (me *Specification) SaveAs(filename string) {
 	toc.MakeTOC(nav, body, "h2", "h3", "h5")
 
 	refs := anchorDt(me.References)
-	for k, id := range refs {
-		refs[k] = "#" + id
-	}
-
 	LinkAll(me.Goals, refs)
 	LinkAll(me.CurrentState, refs)
 
@@ -89,7 +85,7 @@ func anchorDt(root *Element) map[string]string {
 		if e.Name == "dt" {
 			txt := e.Text()
 			id := genID(txt)
-			refs[strings.ToLower(txt)] = id
+			refs[strings.ToLower(txt)] = "#" + id
 			e.With(Id(id))
 		}
 	})
