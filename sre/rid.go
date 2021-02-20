@@ -10,7 +10,7 @@ import (
 // digits. The id is fairly easy to pronounce but is not unique. It's
 // up to the caller to validate it's uniqeness in a specification when
 // required.
-func NewRID() string {
+func newRID() string {
 	return "r" + newID(3, 2)
 }
 
