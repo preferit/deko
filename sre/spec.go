@@ -23,7 +23,7 @@ type Specification struct {
 
 func (me *Specification) Page() *Page {
 	nav := Nav()
-	mainGoal := FindFirstChild(me.Goals, "maingoal")
+	mainGoal := findFirstChild(me.Goals, "maingoal")
 	body := Body(
 		Div(Class("timestamp"), "Last update: ", me.LastUpdate),
 
@@ -96,7 +96,7 @@ func anchorDt(root *Element) map[string]string {
 	return refs
 }
 
-func FindFirstChild(root *Element, name string) (found *Element) {
+func findFirstChild(root *Element, name string) (found *Element) {
 	web.WalkElements(root, func(e *web.Element) {
 		if e.Name == name {
 			if found == nil {
