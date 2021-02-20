@@ -1,4 +1,4 @@
-package sore
+package sre
 
 import . "github.com/gregoryv/web"
 

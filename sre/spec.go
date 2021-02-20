@@ -1,6 +1,6 @@
-// Package sore provides ways to describre SOftware REquirements
-// specifications
-package sore
+// Package sre provides ways to describe software requirements
+// specifications.
+package sre
 
 import (
 	"fmt"
@@ -177,7 +177,7 @@ func (me *Specification) CheckRequirements() error {
 	missingId := make([]string, 0)
 	var found int
 	web.WalkElements(me.CurrentState, func(e *web.Element) {
-		if e.Name == REQ {
+		if e.Name == requirementTag {
 			found++
 			if !e.HasAttr("id") {
 				txt := e.Text()
@@ -207,7 +207,7 @@ func Requirements(v ...*Requirement) *Element {
 	ul := Ul()
 	for _, req := range v {
 		id := req.ID
-		el := NewElement(REQ, Class("requirement"), req.Txt, Attr("title", id))
+		el := NewElement(requirementTag, Class("requirement"), req.Txt, Attr("title", id))
 		if id != "" {
 			el.With(Id(id))
 		} else {
@@ -227,7 +227,7 @@ type Requirement struct {
 	Txt string
 }
 
-const REQ = "requirement"
+const requirementTag = "requirement"
 
 var idChars = regexp.MustCompile(`\W`)
 
