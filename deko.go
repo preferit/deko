@@ -2,14 +2,14 @@ package deko
 
 import (
 	. "github.com/gregoryv/web"
-	"github.com/preferit/deko/spec"
-	. "github.com/preferit/deko/spec"
+	"github.com/preferit/deko/sore"
+	. "github.com/preferit/deko/sore"
 )
 
 func NewDeko() *Specification {
 	n := NewHn(2)
 
-	s := spec.Specification{
+	s := sore.Specification{
 		Name:         "Deko project specification",
 		LastUpdate:   LastUpdate, // from changelog.go
 		Goals:        NewGoals(n),

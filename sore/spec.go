@@ -1,4 +1,6 @@
-package spec
+// Package sore provides ways to describre SOftware REquirements
+// specifications
+package sore
 
 import (
 	"fmt"

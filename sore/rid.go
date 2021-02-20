@@ -1,4 +1,4 @@
-package spec
+package sore
 
 import (
 	"math/rand"
