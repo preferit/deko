@@ -16,8 +16,8 @@ func theme() *CSS {
 		"max-width: 21cm",
 		"line-height: 1.3em",
 	)
-	css.Style("h1:first-child",
-		"margin-top: 0",
+	css.Style(".doctitle",
+		"font-size: 2em",
 	)
 	css.Style("nav ul",
 		"list-style-type: none",
@@ -27,12 +27,10 @@ func theme() *CSS {
 	css.Style("section",
 		"margin-bottom: 3.236em",
 	)
-	css.Style("li.h3",
-		"margin-left: 1.618em",
-	)
-	css.Style("li.h4",
-		"margin-left: 3.236em",
-	)
+	css.Style("li.h2", "margin-left: 1.618em")
+	css.Style("li.h3", "margin-left: 2.618em")
+	css.Style("li.h4", "margin-left: 3.618em")
+
 	css.Style("a:link",
 		"text-decoration: none",
 	)

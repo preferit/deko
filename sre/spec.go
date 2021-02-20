@@ -27,8 +27,8 @@ func (me *Specification) SaveAs(filename string) {
 	body := Body(
 		Div(Class("timestamp"), "Last update: ", me.LastUpdate),
 
-		H1(me.Name),
-		mainGoal,
+		Div(Class("doctitle"), me.Name),
+		P(mainGoal),
 		nav,
 		Article(
 			me.Goals,
@@ -44,14 +44,17 @@ func (me *Specification) SaveAs(filename string) {
 	renameElement(me.Goals, "maingoal", "em")
 	renameElement(me.Goals, "goal", "wrapper")
 	renameElement(me.CurrentState, "issue", "div")
-	toc.MakeTOC(nav, body, "h2", "h3", "h5")
+
+	// include h5 so questions are visible in the top navigation
+	toc.MakeTOC(nav, body, "h1", "h2", "h5")
 
 	refs := anchorDt(me.References)
 	LinkAll(me.Goals, refs)
 	LinkAll(me.CurrentState, refs)
 
-	toc.GenerateIDs(body, "h4")
-	toc.GenerateAnchors(body, "h4")
+	// make sure titles not part of the navigation are easy referenced
+	toc.GenerateIDs(body, "h3", "h4")
+	toc.GenerateAnchors(body, "h3", "h4")
 
 	page := NewPage(
 		Html(
@@ -216,10 +219,6 @@ func Requirements(v ...*Requirement) *Element {
 		ul.With(Li(el))
 	}
 	return ul
-}
-
-func NewRequirement(v string) *Requirement {
-	return &Requirement{Txt: v}
 }
 
 type Requirement struct {

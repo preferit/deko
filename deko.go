@@ -7,28 +7,26 @@ import (
 )
 
 func NewDeko() *Specification {
-	n := NewHn(2)
-
 	s := sre.Specification{
 		Name:         "Deko project specification",
 		LastUpdate:   LastUpdate, // from changelog.go
-		Goals:        NewGoals(n),
-		CurrentState: NewCurrentState(n),
-		Changelog:    NewChangelog(n),
-		References:   NewReferences(n),
+		Goals:        NewGoals(),
+		CurrentState: NewCurrentState(),
+		Changelog:    NewChangelog(),
+		References:   NewReferences(),
 	}
 	return &s
 }
 
-func NewGoals(n *Hn) *Element {
+func NewGoals() *Element {
 	main := MainGoal("Simplify time keeping between consultants and customers.")
 
 	return Section(
-		n.H1("Goals"),
+		H1("Goals"),
 
 		P(`The main goal of this project is to "`, main, `".`),
 
-		n.H2("Background"),
+		H2("Background"),
 		P(`Working by the hour involves keeping track of
 		those working hours and at certain intervals transform the
 		accumulated time to an invoice for the customer.`),
@@ -49,15 +47,15 @@ func NewGoals(n *Hn) *Element {
 	)
 }
 
-func NewCurrentState(n *Hn) *Element {
+func NewCurrentState() *Element {
 	s := Section(
-		n.H1("Current state"),
+		H1("Current state"),
 
 		P(`By describing how time keeping is currently managed we
 		define expected features, highlight issues and elicit
 		requirements for future solutions.`),
 
-		n.H2("Consultant logs working hours"),
+		H2("Consultant logs working hours"),
 
 		P(`Preferits consultants use spreadsheet file for logging the
 	    hours and reporting them to the CEO. The file is prepared in
@@ -68,7 +66,7 @@ func NewCurrentState(n *Hn) *Element {
 	    vacation, illness and other non project specific tasks that
 	    may need time keeping.`),
 
-		n.H3("Current process provided features"),
+		H3("Current process provided features"),
 		Features(
 
 			Feature(`As a consultant I have the freedom of When to
@@ -83,7 +81,7 @@ func NewCurrentState(n *Hn) *Element {
 			//
 		),
 
-		n.H3("Issues"),
+		H3("Issues"),
 		Issues(
 
 			Issue(`The monthly sheet is quite large and it's easy to
@@ -99,7 +97,7 @@ func NewCurrentState(n *Hn) *Element {
 
 		// ----------------------------------------
 
-		n.H2("CEO prepares spreadsheet file for consultant"),
+		H2("CEO prepares spreadsheet file for consultant"),
 
 		P(`Each year the CEO creates a new spreadsheet file based on a
 		previous one. He goes through each month and verifies that the
@@ -109,7 +107,7 @@ func NewCurrentState(n *Hn) *Element {
 		it's added to this years file. The new file is then sent out
 		to the consultant.`),
 
-		n.H3("Issues"),
+		H3("Issues"),
 		Issues(
 
 			Issue(`It's tedious to update the holidays with the
@@ -121,11 +119,11 @@ func NewCurrentState(n *Hn) *Element {
 
 		// ----------------------------------------
 
-		n.H2("Consultant reports working hours to CEO"),
+		H2("Consultant reports working hours to CEO"),
 
 		P(`Consultant e-mails the spreadsheet file to the CEO`),
 
-		n.H3("Issues"),
+		H3("Issues"),
 		Issues(
 
 			Issue(`Cannot report working hours unless access to
@@ -138,12 +136,12 @@ func NewCurrentState(n *Hn) *Element {
 
 		// ----------------------------------------
 
-		n.H2("Consultant reports working hours to contractor"),
+		H2("Consultant reports working hours to contractor"),
 
 		P(`Consultant opens the spreadsheet file to find the summary for a
 		specific project and e-mails that summary to the contractor.`),
 
-		n.H3("Issues"),
+		H3("Issues"),
 		Issues(
 
 			Issue(`Cannot report working hours unless access to
@@ -155,7 +153,7 @@ func NewCurrentState(n *Hn) *Element {
 
 		// ----------------------------------------
 
-		n.H2("CEO creates invoice for customer"),
+		H2("CEO creates invoice for customer"),
 
 		P(`CEO opens spreadsheet file for consultant that is
 		contracted and finds the summary for the specific project. The
@@ -163,7 +161,7 @@ func NewCurrentState(n *Hn) *Element {
 		entered into the financial system.`,
 		),
 
-		n.H3("Requirements"),
+		H3("Requirements"),
 		Requirements(
 			rami73,
 			ryre95,
@@ -193,9 +191,9 @@ var (
 	//
 )
 
-func NewReferences(n *Hn) *Element {
+func NewReferences() *Element {
 	return Section(
-		n.H1("References"),
+		H2("References"),
 
 		Dl(
 

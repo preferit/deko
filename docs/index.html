@@ -13,8 +13,8 @@ padding: 1em 1.618em 1800px 1.618em;
 max-width: 21cm;
 line-height: 1.3em;
 }
-h1:first-child {
-margin-top: 0;
+.doctitle {
+font-size: 2em;
 }
 nav ul {
 list-style-type: none;
@@ -24,11 +24,14 @@ margin-bottom: 3.236em;
 section {
 margin-bottom: 3.236em;
 }
-li.h3 {
+li.h2 {
 margin-left: 1.618em;
 }
+li.h3 {
+margin-left: 2.618em;
+}
 li.h4 {
-margin-left: 3.236em;
+margin-left: 3.618em;
 }
 a:link {
 text-decoration: none;
@@ -87,26 +90,27 @@ margin-bottom: 1em;
 </head>
 <body>
 <div class="timestamp">Last update: 2021-02-12 07:55</div>
-<h1>Deko project specification</h1>
-<em class="goal main-goal">Simplify <a href="#timekeeping">time keeping</a> between consultants and customers.</em><nav><ul>
-<li class="h2"><a href="#goals">Goals</a></li>
-<li class="h3"><a href="#background">Background</a></li>
-<li class="h2"><a href="#currentstate">Current state</a></li>
-<li class="h3"><a href="#consultantlogsworkinghours">Consultant logs working hours</a></li>
-<li class="h3"><a href="#ceopreparesspreadsheetfileforconsultant">CEO prepares spreadsheet file for consultant</a></li>
-<li class="h3"><a href="#consultantreportsworkinghourstoceo">Consultant reports working hours to CEO</a></li>
-<li class="h3"><a href="#consultantreportsworkinghourstocontractor">Consultant reports working hours to contractor</a></li>
-<li class="h3"><a href="#ceocreatesinvoiceforcustomer">CEO creates invoice for customer</a></li>
+<div class="doctitle">Deko project specification</div>
+<p><em class="goal main-goal">Simplify <a href="#timekeeping">time keeping</a> between consultants and customers.</em></p>
+<nav><ul>
+<li class="h1"><a href="#goals">Goals</a></li>
+<li class="h2"><a href="#background">Background</a></li>
+<li class="h1"><a href="#currentstate">Current state</a></li>
+<li class="h2"><a href="#consultantlogsworkinghours">Consultant logs working hours</a></li>
+<li class="h2"><a href="#ceopreparesspreadsheetfileforconsultant">CEO prepares spreadsheet file for consultant</a></li>
+<li class="h2"><a href="#consultantreportsworkinghourstoceo">Consultant reports working hours to CEO</a></li>
+<li class="h2"><a href="#consultantreportsworkinghourstocontractor">Consultant reports working hours to contractor</a></li>
+<li class="h2"><a href="#ceocreatesinvoiceforcustomer">CEO creates invoice for customer</a></li>
 <li class="h2"><a href="#references">References</a></li>
-<li class="h2"><a href="#changelog">Changelog</a></li>
-<li class="h3"><a href="#010unreleased">0.1.0-unreleased </a></li>
+<li class="h1"><a href="#changelog">Changelog</a></li>
+<li class="h2"><a href="#010unreleased">0.1.0-unreleased </a></li>
 </ul>
 </nav>
 <article>
 <section>
-<h2 id="goals"><a href="#goals">Goals</a></h2>
+<h1 id="goals"><a href="#goals">Goals</a></h1>
 <p>The main goal of this project is to "<em class="goal main-goal">Simplify <a href="#timekeeping">time keeping</a> between consultants and customers.</em>".</p>
-<h3 id="background"><a href="#background">Background</a></h3>
+<h2 id="background"><a href="#background">Background</a></h2>
 <p>Working by the hour involves keeping track of
 		those working hours and at certain intervals transform the
 		accumulated time to an invoice for the customer.</p>
@@ -123,11 +127,11 @@ margin-bottom: 1em;
 		directly.</p>
 </section>
 <section>
-<h2 id="currentstate"><a href="#currentstate">Current state</a></h2>
+<h1 id="currentstate"><a href="#currentstate">Current state</a></h1>
 <p>By describing how <a href="#timekeeping">time keeping</a> is currently managed we
 		define expected features, highlight issues and elicit
 		requirements for future solutions.</p>
-<h3 id="consultantlogsworkinghours"><a href="#consultantlogsworkinghours">Consultant logs working hours</a></h3>
+<h2 id="consultantlogsworkinghours"><a href="#consultantlogsworkinghours">Consultant logs working hours</a></h2>
 <p>Preferits consultants use <a href="#spreadsheetfile">spreadsheet file</a> for logging the
 	    hours and reporting them to the CEO. The file is prepared in
 	    advance by the CEO each year, with expected number of working
@@ -136,7 +140,7 @@ margin-bottom: 1em;
 	    enter number of hours for each day. There are also rows for
 	    vacation, illness and other non project specific tasks that
 	    may need <a href="#timekeeping">time keeping</a>.</p>
-<h4 id="currentprocessprovidedfeatures"><a href="#currentprocessprovidedfeatures">Current process provided features</a></h4>
+<h3 id="currentprocessprovidedfeatures"><a href="#currentprocessprovidedfeatures">Current process provided features</a></h3>
 <ul class="features">
 <li><Feature class="Feature">As a consultant I have the freedom of When to
 			track time, during one month.</Feature></li>
@@ -146,7 +150,7 @@ margin-bottom: 1em;
 <li><Feature class="Feature">Working hours valued differently, e.g. overtime,
 			are automatically calculated in the <a href="#spreadsheetfile">spreadsheet file</a>.</Feature></li>
 </ul>
-<h4 id="issues"><a href="#issues">Issues</a></h4>
+<h3 id="issues"><a href="#issues">Issues</a></h3>
 <ul class="issues">
 <li><div class="issue">The monthly sheet is quite large and it's easy to
 		    update the wrong cell for any given date.</div>
@@ -158,7 +162,7 @@ margin-bottom: 1em;
 			mobile device.</div>
 </li>
 </ul>
-<h3 id="ceopreparesspreadsheetfileforconsultant"><a href="#ceopreparesspreadsheetfileforconsultant">CEO prepares <a href="#spreadsheetfile">spreadsheet file</a> for consultant</a></h3>
+<h2 id="ceopreparesspreadsheetfileforconsultant"><a href="#ceopreparesspreadsheetfileforconsultant">CEO prepares <a href="#spreadsheetfile">spreadsheet file</a> for consultant</a></h2>
 <p>Each year the CEO creates a new <a href="#spreadsheetfile">spreadsheet file</a> based on a
 		previous one. He goes through each month and verifies that the
 		calendar is correct and changes the expected working hours for
@@ -166,7 +170,7 @@ margin-bottom: 1em;
 		consultant. If the consultant has overtime left from last year
 		it's added to this years file. The new file is then sent out
 		to the consultant.</p>
-<h4 id="issues"><a href="#issues">Issues</a></h4>
+<h3 id="issues"><a href="#issues">Issues</a></h3>
 <ul class="issues">
 <li><div class="issue">It's tedious to update the holidays with the
 			expected working hours. If a mistake is made and later
@@ -174,9 +178,9 @@ margin-bottom: 1em;
 			<a href="#spreadsheetfile">spreadsheet file</a>.</div>
 </li>
 </ul>
-<h3 id="consultantreportsworkinghourstoceo"><a href="#consultantreportsworkinghourstoceo">Consultant reports working hours to CEO</a></h3>
+<h2 id="consultantreportsworkinghourstoceo"><a href="#consultantreportsworkinghourstoceo">Consultant reports working hours to CEO</a></h2>
 <p>Consultant e-mails the <a href="#spreadsheetfile">spreadsheet file</a> to the CEO</p>
-<h4 id="issues"><a href="#issues">Issues</a></h4>
+<h3 id="issues"><a href="#issues">Issues</a></h3>
 <ul class="issues">
 <li><div class="issue">Cannot report working hours unless access to
 			<a href="#spreadsheetfile">spreadsheet file</a>.</div>
@@ -184,10 +188,10 @@ margin-bottom: 1em;
 <li><div class="issue">Easy to send the wrong file.</div>
 </li>
 </ul>
-<h3 id="consultantreportsworkinghourstocontractor"><a href="#consultantreportsworkinghourstocontractor">Consultant reports working hours to contractor</a></h3>
+<h2 id="consultantreportsworkinghourstocontractor"><a href="#consultantreportsworkinghourstocontractor">Consultant reports working hours to contractor</a></h2>
 <p>Consultant opens the <a href="#spreadsheetfile">spreadsheet file</a> to find the summary for a
 		specific project and e-mails that summary to the contractor.</p>
-<h4 id="issues"><a href="#issues">Issues</a></h4>
+<h3 id="issues"><a href="#issues">Issues</a></h3>
 <ul class="issues">
 <li><div class="issue">Cannot report working hours unless access to
 			<a href="#spreadsheetfile">spreadsheet file</a>.</div>
@@ -195,12 +199,12 @@ margin-bottom: 1em;
 <li><div class="issue">Hard to tell if all expected days are logged.</div>
 </li>
 </ul>
-<h3 id="ceocreatesinvoiceforcustomer"><a href="#ceocreatesinvoiceforcustomer">CEO creates invoice for customer</a></h3>
+<h2 id="ceocreatesinvoiceforcustomer"><a href="#ceocreatesinvoiceforcustomer">CEO creates invoice for customer</a></h2>
 <p>CEO opens <a href="#spreadsheetfile">spreadsheet file</a> for consultant that is
 		contracted and finds the summary for the specific project. The
 		accumulated hours that are eligible for invoicing are manually
 		entered into the <a href="#financialsystem">financial system</a>.</p>
-<h4 id="requirements"><a href="#requirements">Requirements</a></h4>
+<h3 id="requirements"><a href="#requirements">Requirements</a></h3>
 <ul>
 <li><div class="requirement" title="rami73" id="rami73">CEO must easily receive/find the monthly sum eligible
 		for invoicing.</div>
@@ -223,11 +227,11 @@ margin-bottom: 1em;
 			working hours into invoices.</dd>
 </dl></section>
 <article>
-<h2 id="changelog"><a href="#changelog">Changelog</a></h2>
+<h1 id="changelog"><a href="#changelog">Changelog</a></h1>
 <p>All notable changes to this project are documented
 		here. Further details are found at <a href="https://github.com/preferit/deko/commits/main">deko/commits.</a></p>
 <section>
-<h3 id="010unreleased"><a href="#010unreleased">0.1.0-unreleased</a></h3>
+<h2 id="010unreleased"><a href="#010unreleased">0.1.0-unreleased</a></h2>
 <ul>
 <li>Answered: What features does current log process provide?</li>
 <li>Elicit requirements of the current state</li>
