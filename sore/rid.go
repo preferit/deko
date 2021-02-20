@@ -5,12 +5,13 @@ import (
 	"time"
 )
 
-func RID() string {
+// NewRID returns an mnemonic identifier suitable for a requirement. 6
+// characters long, starting with 'r' followed by 3 letters and 2
+// digits. The id is fairly easy to pronounce but is not unique. It's
+// up to the caller to validate it's uniqeness in a specification when
+// required.
+func NewRID() string {
 	return "r" + newID(3, 2)
-}
-
-func init() {
-	rand.Seed(time.Now().UnixNano())
 }
 
 func newID(prefixLen, digitLen int) string {
@@ -22,11 +23,7 @@ func newID(prefixLen, digitLen int) string {
 	for i := 0; i < digitLen; i++ {
 		alf = append(alf, digits)
 	}
-	return NewWord(alf...)
-}
-
-func startWithVowel() bool {
-	return true // rand.Intn(2) == 1
+	return newWord(alf...)
 }
 
 func prefixAlfabets(size int) []string {
@@ -40,7 +37,13 @@ func prefixAlfabets(size int) []string {
 	return alfabets
 }
 
-func NewWord(alfabets ...string) string {
+// startWithVowel returns true always as the only id generator is
+// NewRID which prefixes each id with the letter 'r'
+func startWithVowel() bool {
+	return true
+}
+
+func newWord(alfabets ...string) string {
 	buf := make([]byte, len(alfabets))
 	for i, alfabet := range alfabets {
 		buf[i] = alfabet[rand.Intn(len(alfabet))]
@@ -50,7 +53,7 @@ func NewWord(alfabets ...string) string {
 
 const (
 	digits           = "0123456789"
-	vowels           = "aeioy"
+	vowels           = "aeiouy"
 	firstConsonants  = "bcdfghjklmnpqrstvz"
 	secondConsonants = "bcdfghjklmnpqrstvxz"
 )
@@ -67,3 +70,7 @@ var (
 		secondConsonants,
 	}
 )
+
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}

@@ -190,7 +190,7 @@ func (me *Specification) CheckRequirements() error {
 	if len(missingId) > 0 {
 		var wb strings.Builder
 		for _, r := range missingId {
-			wb.WriteString(RID())
+			wb.WriteString(NewRID()) // Propose a new rid
 			wb.WriteString(" - ")
 			wb.WriteString(r)
 			wb.WriteString("\n")
