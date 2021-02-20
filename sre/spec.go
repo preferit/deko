@@ -1,5 +1,11 @@
 // Package sre provides ways to describe software requirements
 // specifications.
+//
+// Its main purpose is to enable requirement engineers to program
+// sepcifications using the Go programming language.
+//
+// The specification is a document with some dynamic features for
+// analyzing requirements.
 package sre
 
 import (
@@ -117,6 +123,8 @@ func findQuestions(root *Element) []*Element {
 	return res
 }
 
+// Question returns an element with a email reference which readers
+// can use to answer the question.
 func Question(v string) *Element {
 	return Table(Class("question"),
 		Tr(
@@ -204,28 +212,6 @@ func (me *Specification) CheckRequirements() error {
 	}
 	return nil
 }
-
-func Requirements(v ...*Requirement) *Element {
-	ul := Ul()
-	for _, req := range v {
-		id := req.ID
-		el := NewElement(requirementTag, Class("requirement"), req.Txt, Attr("title", id))
-		if id != "" {
-			el.With(Id(id))
-		} else {
-			el.With(Span(Class("warn"), " (Missing ID)"))
-		}
-		ul.With(Li(el))
-	}
-	return ul
-}
-
-type Requirement struct {
-	ID  string
-	Txt string
-}
-
-const requirementTag = "requirement"
 
 var idChars = regexp.MustCompile(`\W`)
 
