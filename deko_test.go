@@ -4,16 +4,14 @@ import (
 	"testing"
 )
 
-// TestSpec generates additional source from the sre.
-func Test_example_spec(t *testing.T) {
+func Test_generate_deko_specification(t *testing.T) {
 	sre := NewDeko()
-	sre.SaveAs("docs/index.html")
+	sre.Page().SaveAs("docs/index.html")
 }
 
 func Test_all_requirements_have_ids(t *testing.T) {
 	sre := NewDeko()
-	err := sre.CheckRequirements()
-	if err != nil {
+	if err := sre.CheckRequirements(); err != nil {
 		t.Fatal(err)
 	}
 }

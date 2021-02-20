@@ -21,7 +21,7 @@ type Specification struct {
 	References   *Element
 }
 
-func (me *Specification) SaveAs(filename string) {
+func (me *Specification) Page() *Page {
 	nav := Nav()
 	mainGoal := FindFirstChild(me.Goals, "maingoal")
 	body := Body(
@@ -56,7 +56,7 @@ func (me *Specification) SaveAs(filename string) {
 	toc.GenerateIDs(body, "h3", "h4")
 	toc.GenerateAnchors(body, "h3", "h4")
 
-	page := NewPage(
+	return NewPage(
 		Html(
 			Head(
 				Style(theme()),
@@ -64,7 +64,6 @@ func (me *Specification) SaveAs(filename string) {
 			body,
 		),
 	)
-	page.SaveAs(filename)
 }
 
 func groupQuestions(dst, from *Element) {
