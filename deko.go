@@ -15,6 +15,7 @@ func NewDeko() *Specification {
 		Changelog:    NewChangelog(),
 		References:   NewReferences(),
 	}
+	sre.Email = "gregory@preferit.se"
 	return &s
 }
 

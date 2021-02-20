@@ -18,6 +18,9 @@ import (
 	"github.com/gregoryv/web/toc"
 )
 
+// Email used for answering questions
+var Email string
+
 type Specification struct {
 	Name         string
 	LastUpdate   string
@@ -137,7 +140,7 @@ func Question(v string) *Element {
 				Class("answer"),
 				A(
 					Href(
-						fmt.Sprintf("mailto:gregory@preferit.se?subject=%s", v),
+						fmt.Sprintf("mailto:%s?subject=%s", Email, v),
 					),
 					"Answer",
 				),
