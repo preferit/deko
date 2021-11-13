@@ -2,7 +2,7 @@
 // specifications.
 //
 // Its main purpose is to enable requirement engineers to program
-// sepcifications using the Go programming language.
+// specifications using the Go programming language.
 //
 // The specification is a document with some dynamic features for
 // analyzing requirements.
