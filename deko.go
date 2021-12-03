@@ -168,6 +168,13 @@ func NewCurrentState() *Element {
 			ryre95,
 		),
 
+		H3("Issues"),
+
+		Ul(
+			Li(`Must complement invoice with contact info for attesting(english) invoice on contractor end`),
+			Li(`Must contain a fixed project identifier`),
+		),
+
 		//
 	)
 	return s
